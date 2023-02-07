@@ -1,5 +1,5 @@
 {
-  "description": "项目配置文件",
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -37,11 +37,15 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "useStaticServer": true,
+    "checkInvalidKey": true,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx566be3b9e68287c9",
+  "appid": "wx1a1229a503f7e641",
   "projectname": "miniprogram-92",
   "condition": {},
   "editorSetting": {
