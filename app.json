@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/category/category",
-    "pages/ceremony/ceremony",
+    "pages/cart/cart",
     "pages/info/info"
   ],
   "window": {
@@ -13,6 +13,7 @@
   },
   "tabBar": {
     "color": "#252933",
+    "custom": true,
     "selectedColor": "#FF734C",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
@@ -25,15 +26,15 @@
       },
       {
         "pagePath": "pages/category/category",
-        "text": "选花",
+        "text": "分类",
         "iconPath": "static/tabbar/home-icon2.png",
         "selectedIconPath": "static/tabbar/home-icon2-2.png"
       },
       {
-        "pagePath": "pages/ceremony/ceremony",
-        "text": "开业花礼",
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
         "iconPath": "static/tabbar/home-icon3.png",
-        "selectedIconPath": "static/tabbar/home-icon3.png"
+        "selectedIconPath": "static/tabbar/home-icon3-3.png"
       },
       {
         "pagePath": "pages/info/info",
@@ -43,6 +44,5 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
