@@ -1,0 +1,115 @@
+@import '/static/fonts/iconfont.wxss';
+.bg {
+  background-color: #f7f4f8;
+}
+.top-show {
+  width: 100%;
+  height: 360rpx;
+}
+.top-show-img {
+  width: 100%;
+  height: 100%;
+}
+.ellipsis {
+  width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wrap {
+  margin: 0 30rpx;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+
+  margin-top: -40rpx;
+  color: #999;
+}
+.user-container image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.order {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.order-title-wrap,
+.order-content-wrap {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.order-title-wrap .title {
+  color: #444;
+  font-weight: 700;
+}
+.order-title-wrap .more {
+  color: #ccc;
+  font-size: 20rpx;
+}
+.order-content-wrap {
+  display: flex;
+}
+
+.order-content-wrap .iconfont {
+  font-size: 60rpx;
+}
+.order-content-wrap text {
+  font-size: 25rpx;
+  margin-top: 20rpx;
+}
+.order-content-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.function {
+  display: flex;
+  justify-content: left;
+}
+.function .order-content-item {
+  margin-right: 30rpx;
+}
+.icon-daohangdizhi {
+  color: rgb(117, 207, 125);
+}
+.icon-kefu_o {
+  color: rgb(230, 154, 12);
+}
+
+.after-scale {
+  margin-top: 30rpx;
+}
+
+.after-scale-item {
+  display: flex;
+  margin: 25rpx 15rpx;
+  color: #999;
+}
+.after-scale-item text {
+  font-size: 25rpx;
+  margin-left: 20rpx;
+}
+.after-scale-item .iconfont {
+  color: #a2b364;
+}
+
+.info-footer {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #aaa;
+  font-size: 25rpx;
+}
