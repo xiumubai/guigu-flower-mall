@@ -5,14 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    systemInfo:{
+      statusBarHeight: 0,
+      test: 123
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.getSystemInfo({
+      success: (result) => {
+        this.setData({
+          systemInfo:{
+            ...this.data.systemInfo,
+            statusBarHeight: result.statusBarHeight
+          }
+        })
+        console.log(result.statusBarHeight);
+      },
+    })
   },
 
   /**
