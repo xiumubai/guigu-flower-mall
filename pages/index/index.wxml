@@ -1,4 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   首页
+  <van-button type="primary">按钮</van-button>
+  <van-icon name="close" />
+  <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
+  <van-icon name="chat" color="red" />
 </view>
