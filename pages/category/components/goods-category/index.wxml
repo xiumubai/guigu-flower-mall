@@ -1,15 +1,26 @@
 <view class="goods-category">
-
-	<c-sidebar list="{{category}}" ></c-sidebar>
 	
+	<scroll-view class="c-sidebar" scroll-y>
+		<view wx:for="{{category}}" wx:key="index" class="c-sidebar-item-container">
+			<view
+				class="c-sidebar-item {{activeKey === index ? 'active' : ''}}"
+				bind:tap="onClick"
+				data-index="{{index}}"
+			>
+				<view class="c-sidebar-item__text"> {{ item.name }} </view>
+			</view>
+		</view>
+
+	</scroll-view>
+
 	<view class="goods-category__right">
 		<view class="flex goods-category-normal-item-title">
-			女装
+			{{category[activeKey].name}}
 		</view>
 		<view class="goods-category-normal-item-container">
-			<view class="category-card-item" wx:for="{{category[0].children}}" wx:key="index">
+			<view class="category-card-item" wx:for="{{category[activeKey].children}}" wx:key="index">
 				<view class="img-bg">
-					<image src="{{defaultImg}}" class="img"/>
+					<image src="{{item.imageUrl || defaultImg}}" class="img"/>
 				</view>
 				<text class="item-title">{{item.name}}</text>
 			</view>
