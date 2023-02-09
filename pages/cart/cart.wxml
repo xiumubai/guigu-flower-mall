@@ -1,5 +1,50 @@
 <!--pages/ceremony/ceremony.wxml-->
-<view class="container">
-  购物车
+<view class="container goods-wrap">
+  <view class="cart-wrap">
+    <view class="goods-item">
+      <view class="left">
+        <van-checkbox checked-color="#FA4126" value="{{ checked }}" bind:change="onChange"></van-checkbox>
+      </view>
+      <view class="mid">
+        <image class="img" src="https://img01.hua.com/uploadpic/newpic/9012637.jpg_220x240.jpg" />
+      </view>
+      <view class="right">
+        <view class="title">
+            腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
+        </view>
+        <view class="buy">
+          <view class="price">
+            <view class="symbol">¥</view>
+            <view class="num">99.00</view>
+          </view>
+          <view class="buy-btn">
+            <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+          </view>
+        </view>
+      </view>
+    </view>
+     <view class="goods-item">
+      <view class="left">
+        <van-checkbox checked-color="#FA4126" value="{{ checked }}" bind:change="onChange"></van-checkbox>
+      </view>
+      <view class="mid">
+        <image class="img" src="https://img01.hua.com/uploadpic/newpic/9012637.jpg_220x240.jpg" />
+      </view>
+      <view class="right">
+        <view class="title">
+            腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
+        </view>
+        <view class="buy">
+          <view class="price">
+            <view class="symbol">¥</view>
+            <view class="num">99.00</view>
+          </view>
+          <view class="buy-btn">
+            <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
 
