@@ -1,0 +1,21 @@
+<!--pages/goods/list/index.wxml-->
+
+<view class="container">
+  <filter
+    bind:showFilterPopup="showFilterPopup"
+  >
+    <filter-group
+      slot="filterPopup"
+      show="{{show}}"
+      bind:showFilterPopupClose="showFilterPopupClose"
+    >
+      <view slot="filterSlot">12313</view>
+    </filter-group>
+  </filter>
+  <view class="goods-list">
+    <goods-card></goods-card>
+    <goods-card></goods-card>
+    <goods-card></goods-card>
+  </view>
+
+</view>

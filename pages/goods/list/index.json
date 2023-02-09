@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "filter": "/components/filter/index",
+    "filter-group": "/components/filter-group/index",
+    "goods-card": "/components/goods-card/index",
+    "van-popup": "@vant/weapp/popup/index"
+  },
+  "navigationBarTitleText": "商品列表"
+}
