@@ -1,0 +1,13 @@
+<!--components/goods-list/index.wxml-->
+
+<view class="product">
+  <view class="product-title">送恋人/爱情鲜花</view>
+  <view class="product-list">
+    <goods-card></goods-card>
+    <goods-card></goods-card>
+    <goods-card></goods-card>
+  </view>
+  <view class="product-more">
+    <navigator class="product-more-btn">查看更多</navigator>
+  </view>
+</view>

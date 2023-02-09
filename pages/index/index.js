@@ -1,3 +1,5 @@
+import { backgroundList, banner } from '../../modal/swiper';
+import { categorylist } from '../../modal/category';
 Component({
   pageLifetimes: {
     show() {
@@ -7,5 +9,10 @@ Component({
         });
       }
     },
+  },
+  data: {
+    background: backgroundList,
+    category: categorylist,
+    banner: banner,
   },
 });
