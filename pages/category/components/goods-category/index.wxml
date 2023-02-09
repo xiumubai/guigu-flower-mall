@@ -1,0 +1,18 @@
+<view class="goods-category">
+
+	<c-sidebar list="{{category}}" ></c-sidebar>
+	
+	<view class="goods-category__right">
+		<view class="flex goods-category-normal-item-title">
+			女装
+		</view>
+		<view class="goods-category-normal-item-container">
+			<view class="category-card-item" wx:for="{{category[0].children}}" wx:key="index">
+				<view class="img-bg">
+					<image src="{{defaultImg}}" class="img"/>
+				</view>
+				<text class="item-title">{{item.name}}</text>
+			</view>
+		</view>
+	</view>
+</view>

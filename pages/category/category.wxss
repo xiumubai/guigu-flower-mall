@@ -1,0 +1,9 @@
+.wrap {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.goods-category {
+  background-color: #f6f6f6 !important;
+  height: 100%;
+}
