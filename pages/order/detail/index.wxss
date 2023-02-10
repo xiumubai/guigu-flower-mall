@@ -1,0 +1,104 @@
+/* pages/order/index.wxss */
+
+.flex {
+  display: flex;
+}
+
+.order-address {
+  justify-content: space-between;
+  padding: 24rpx 32rpx;
+}
+.address-card .order-address .title {
+  display: flex;
+  align-items: center;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #999999;
+  line-height: 40rpx;
+}
+
+.address-card .order-address .detail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  line-height: 48rpx;
+  margin: 8rpx 0;
+}
+
+address-card .order-address .info {
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #333333;
+  line-height: 40rpx;
+}
+
+.address-card {
+  margin: 24rpx 0;
+  background-color: #fff;
+}
+
+.t-cell--middle {
+  align-items: center;
+}
+
+.t-cell {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24rpx 32rpx;
+  font-size: 32rpx;
+  line-height: 48rpx;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #ffffff;
+}
+
+.t-cell__left,
+.t-cell__right {
+  display: flex;
+  align-items: center;
+  font-size: 48rpx;
+  line-height: 48rpx;
+}
+
+.t-cell__title-text {
+  display: flex;
+}
+
+.t-cell__title-text {
+  margin-left: 6px;
+}
+.address-card .top-line {
+  width: 100%;
+  height: 6rpx;
+  background-color: #fff;
+  background-image: url(https://cdn-we-retail.ym.tencent.com/miniapp/order/stripe.png);
+  background-repeat: repeat-x;
+  display: block;
+}
+
+.goods-wraper {
+  background-color: white;
+  padding: 24rpx 32rpx;
+}
+
+.time-wraper view {
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333333;
+}
+
+.title {
+  flex: 1;
+}
+
+.time {
+  margin-right: 4px;
+}

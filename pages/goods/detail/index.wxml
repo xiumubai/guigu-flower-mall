@@ -1,2 +1,38 @@
 <!--pages/goods/detail/index.wxml-->
-<view class></view>
+<view class="container goods-detail">
+  <view class="banner-img">
+    <image class="img" src="https://img01.hua.com/uploadpic/newpic/202301121534175016.jpg" />
+  </view>
+  <view class="content">
+    <view class="price">
+      <view class="price-num">¥299</view>
+      <view class="price-origin-num">¥399</view>
+      
+    </view>
+    <view class="title">亲爱的/情人节网红款/19枝亲爱的/情人节网红款/19枝亲爱的/情人节网红款/19枝</view>
+      <view class="desc">用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，</view>
+  </view>
+  <view class="detail">
+    <image src="https://img01.hua.com/uploadpic/images/by_2023011209565932.jpg" />
+    <image src="https://img01.hua.com/uploadpic/images/by_20230112095659229.jpg" />
+    <image src="https://img01.hua.com/uploadpic/images/by_20230112095659364.jpg" />
+  </view>
+  <view class="footer">
+    <view class="footer-cont flex flex-between">
+      <view class="flex flex-between bottom-operate-left">
+        <view class="icon-wrap flex">
+          <van-icon name="wap-home" color="#666" size="22px" />
+          <text>首页</text>
+        </view>
+        <view class="icon-wrap flex">
+          <van-icon name="shopping-cart" color="#666" size="22px"/>
+          <text>购物车</text>
+        </view>
+      </view>
+      <view class="flex buy-buttons">
+        <view class="bar-separately">加入购物车</view>
+        <view class="bar-buy">立即购买</view>
+      </view>
+    </view>
+  </view>
+</view>
