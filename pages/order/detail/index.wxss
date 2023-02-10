@@ -93,6 +93,7 @@ address-card .order-address .info {
   justify-content: space-between;
   font-size: 14px;
   color: #333333;
+  margin-bottom: 12px;
 }
 
 .title {
@@ -101,4 +102,13 @@ address-card .order-address .info {
 
 .time {
   margin-right: 4px;
+}
+
+.form-textarea {
+  border-radius: 12px;
+  background-color: #f7f8fa;
+  padding: 16px 12px;
+  font-size: 13px;
+  margin-top: 12px;
+  width: 94%;
 }

@@ -25,6 +25,14 @@
       <view class="time">请选择配送时间</view>
       <van-icon color="#BBBBBB" name="arrow" size="14px"/>
     </view>
-    <view class="goods-list"></view>
+    <view class="time-wraper">
+      <view class="title">贺卡备注</view>
+      <textarea 
+        class="form-textarea"
+        placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）" name="textarea"/>
+    </view>
+    <view class="goods-list">
+      
+    </view>
   </view>
 </view>
