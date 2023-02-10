@@ -32,7 +32,41 @@
         placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）" name="textarea"/>
     </view>
     <view class="goods-list">
-      
+      <view class="goods-item flex">
+        <view class="img">
+          <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
+        </view>
+        <view class="content">
+          <view class="goods-title">[鲜花]韩式花篮/阳光使者</view>
+          <view class="goods-price">¥99.0</view>
+        </view>
+        <view class="num">
+          <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+        </view>
+      </view>
+       <view class="goods-item flex">
+        <view class="img">
+          <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
+        </view>
+        <view class="content">
+          <view class="goods-title">[鲜花]韩式花篮/阳光使者</view>
+          <view class="goods-price">¥99.0</view>
+        </view>
+        <view class="num">
+          <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+        </view>
+      </view>
     </view>
+    <view class="time-wraper flex">
+      <image src="https://img02.hua.com/m/images/m_payment_wxzf.png" />
+      <view class="title">支付方式</view>
+      <van-checkbox value="{{true}}"></van-checkbox>
+    </view>
+  </view>
+  <view class="footer flex">
+    <view class="left">
+      ¥499
+    </view>
+    <viwe class="right">去结算</viwe>
   </view>
 </view>

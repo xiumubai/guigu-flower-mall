@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.order {
+  padding-bottom: 80px;
+}
+
 .order-address {
   justify-content: space-between;
   padding: 24rpx 32rpx;
@@ -31,7 +35,7 @@
   margin: 8rpx 0;
 }
 
-address-card .order-address .info {
+.address-card .order-address .info {
   height: 40rpx;
   font-size: 28rpx;
   font-weight: normal;
@@ -89,11 +93,14 @@ address-card .order-address .info {
   padding: 24rpx 32rpx;
 }
 
-.time-wraper view {
+.time-wraper {
+  margin-bottom: 12px;
+}
+.time-wraper .title,
+.time-wraper .time {
   justify-content: space-between;
   font-size: 14px;
   color: #333333;
-  margin-bottom: 12px;
 }
 
 .title {
@@ -111,4 +118,91 @@ address-card .order-address .info {
   font-size: 13px;
   margin-top: 12px;
   width: 94%;
+  height: 84px;
+}
+
+.goods-list {
+  padding: 12px 0;
+}
+
+.goods-list .goods-item {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.goods-item .img {
+  width: 64px;
+  height: 69px;
+}
+
+.img image {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  margin: 0 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content .goods-title {
+  font-size: 14px;
+  color: #333;
+}
+
+.goods-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.num {
+  display: flex;
+  align-items: center;
+}
+
+.time-wraper .title {
+  flex: 1;
+  align-items: center;
+  margin-bottom: 0;
+}
+.time-wraper image {
+  margin-right: 4px;
+  height: 22px;
+  width: 22px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 112rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  color: #fa4126;
+  font-weight: bold;
+  font-size: 63rpx;
+  line-height: 88rpx;
+  margin-left: 16px;
+}
+
+.right {
+  height: 80rpx;
+  width: 240rpx;
+  border-radius: 40rpx;
+  background-color: #fa4126;
+  color: #ffffff;
+  line-height: 80rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  text-align: center;
+  margin-right: 16px;
 }
