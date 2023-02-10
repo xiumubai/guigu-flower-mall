@@ -1,2 +1,31 @@
 <!--pages/address/list/index.wxml-->
-<text>pages/address/list/index.wxml</text>
+
+<view class="container address-list">
+  <view class="title">我的收货地址</view>
+  <view class="list-warpper">
+    
+    <view class="list-item flex">
+      <view class="info">
+        <view class="address-info">甘肃省甘南藏族自治州碌曲县松日鼎盛大厦0层0号</view>
+        <view class="user-info">
+          <view class="tag">家</view>
+          测试用户176****5678
+        </view>
+      </view>
+      <van-icon name="edit" size="22px" color="#999"/>
+    </view>
+    <view class="list-item flex">
+      <view class="info">
+        <view class="address-info">甘肃省甘南藏族自治州碌曲县松日鼎盛大厦0层0号</view>
+        <view class="user-info">
+          <view class="tag">公司</view>
+          测试用户176****5678
+        </view>
+      </view>
+      <van-icon name="edit" size="22px" color="#999"/>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="btn">新建地址</view>
+  </view>
+</view>
