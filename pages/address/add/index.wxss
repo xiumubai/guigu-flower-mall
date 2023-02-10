@@ -1,1 +1,16 @@
 /* pages/address/add/index.wxss */
+
+.address-detail {
+  height: 100vh;
+}
+.flex {
+  display: flex;
+}
+.form-content {
+  margin-top: 16px;
+}
+
+.footer-btn {
+  margin-top: 20px;
+  padding: 0 30px;
+}
