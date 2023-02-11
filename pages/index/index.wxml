@@ -10,7 +10,7 @@
         interval="{{2000}}"
         duration="{{500}}"
       >
-        <block wx:for="{{background}}" wx:key="index">
+        <block wx:for="{{bannerList}}" wx:key="index">
           <swiper-item>
             <image class="img" src="{{item}}" mode="widthFix"></image>
           </swiper-item>

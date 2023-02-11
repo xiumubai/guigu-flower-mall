@@ -1,4 +1,4 @@
-import { getCategoryList } from '../..//modal/category';
+import { getCategoryList } from '../../modal/category';
 Page({
   data: {
     list: getCategoryList,

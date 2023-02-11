@@ -1,4 +1,5 @@
 // pages/login/index.js
+import { login } from '../../utils/api';
 Page({
   data: {
     userInfo: {},
@@ -10,13 +11,14 @@ Page({
     wx.login({
       success: (res) => {
         console.log(res.code);
-
-        wx.request({
-          url: `https://gmall-prod.atguigu.cn/mall-api/weixin/wxLogin/${res.code}`,
-          method: 'GET',
-          success(res) {
-            console.log(res);
-          },
+        const { code } = res;
+        login(code).then((res) => {
+          console.log(res);
+          wx.showToast({
+            title: '登陆成功',
+          });
+          wx.setStorageSync('token', res.data.token);
+          wx.switchTab({ url: '/pages/login/index' });
         });
       },
     });
