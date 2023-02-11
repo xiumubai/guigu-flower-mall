@@ -14,8 +14,6 @@
   </filter>
   <view class="goods-list">
     <goods-card></goods-card>
-    <goods-card></goods-card>
-    <goods-card></goods-card>
   </view>
 
 </view>

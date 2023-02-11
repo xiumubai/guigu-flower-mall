@@ -60,3 +60,13 @@ export const findCategoryTree = () => {
     method: 'GET',
   });
 };
+
+/**
+ * 商品列表
+ */
+export const findGoodsList = (params) => {
+  return request({
+    url: `/mall-api/index/findCategoryTree`,
+    method: 'GET',
+  });
+};
