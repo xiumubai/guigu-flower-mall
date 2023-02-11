@@ -1,18 +1,17 @@
 import { backgroundList, banner } from '../../modal/swiper';
-import { categorylist } from '../../modal/category';
-import { findBanner } from '../../utils/api';
+import {
+  findBanner,
+  findCategoryFirstLevel,
+  findListGoods,
+  findRecommendGoods,
+} from '../../utils/api';
 Page({
-  onShow() {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1,
-      });
-    }
-  },
   data: {
     bannerList: backgroundList,
-    category: categorylist,
+    categoryList: [],
     banner: banner,
+    loveList: [],
+    recommendList: [],
   },
 
   /**
@@ -20,27 +19,76 @@ Page({
    */
   onLoad(options) {
     this.getBannerList();
+    this.getCategoryFirstLevel();
+    this.getListGoods();
+    this.getRecommendGoods();
   },
 
   /**
    * 获取轮播图
    */
-
   async getBannerList() {
     const res = await findBanner();
-    console.log(res);
-    this.bannerList = res.data;
+    this.setData({
+      bannerList: res.data,
+    });
+  },
+
+  /**
+   * 获取一级分类
+   */
+  async getCategoryFirstLevel() {
+    this.categoryList = [1, 2, 3];
+    const res = await findCategoryFirstLevel();
+    const list = res.data.map((item, index) => {
+      // 分类前五个和后五个样式不一样，区别处理
+      if (index > 4) {
+        item['small'] = true;
+      }
+      return item;
+    });
+
+    this.setData({
+      categoryList: list,
+    });
+  },
+
+  /**
+   * 获取猜你喜欢
+   */
+  async getListGoods() {
+    const res = await findListGoods();
+    this.setData({
+      loveList: res.data,
+    });
+  },
+
+  /**
+   * 获取人气推荐
+   */
+  async getRecommendGoods() {
+    const res = await findRecommendGoods();
+    console.log('recommendList', res);
+    this.setData({
+      recommendList: res.data,
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0,
+      });
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
 
   /**
    * 生命周期函数--监听页面隐藏

@@ -35,6 +35,9 @@
   padding-bottom: 3px;
   font-size: 12px;
   color: #71797f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-item-info-bottom {

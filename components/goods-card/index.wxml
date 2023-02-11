@@ -2,14 +2,14 @@
 <view class="product-item">
   <navigator class="navigation">
     <view class="product-item-pic">
-      <image class="img" src="https://img01.hua.com/uploadpic/newpic/9012637.jpg_220x240.jpg" />
+      <image class="img" src="{{item.imageUrl}}" />
     </view>
     <view class="product-item-info">
-      <text class="product-item-info-name">亲爱的/情人节网红款/19枝</text>
-      <text class="product-item-info-promo">情人节新品</text>
+      <text class="product-item-info-name">{{item.name}}</text>
+      <text class="product-item-info-promo">{{item.floralLanguage}}</text>
       <view class="product-item-info-bottom">
-        <view class="product-item-info-price"><text class="pre">¥</text>399</view>
-        <view class="product-item-info-origin-price"><text class="pre">¥</text>499</view>
+        <view class="product-item-info-price"><text class="pre">¥</text>{{item.price}}</view>
+        <view class="product-item-info-origin-price"><text class="pre">¥</text>{{item.marketPrice}}</view>
         <view class="product-item-info-btn">
           <image class="img" src="https://img02.hua.com/m/home/img/home_buy_btn.png" />
         </view>

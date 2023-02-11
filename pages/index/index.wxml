@@ -12,19 +12,19 @@
       >
         <block wx:for="{{bannerList}}" wx:key="index">
           <swiper-item>
-            <image class="img" src="{{item}}" mode="widthFix"></image>
+            <image class="img" src="{{item.imageUrl}}" mode="widthFix"></image>
           </swiper-item>
         </block>
       </swiper>
   </view>
   <!-- 分类Nav -->
-  <procate category="{{category}}"></procate>
+  <procate category="{{categoryList}}"></procate>
   <!-- 活动背景图 -->
   <view class="festival-banner bg-white">
      <image class="img" src="{{banner}}" mode="widthFix"></image>
   </view>
 
   <!-- 商品列表 -->
-  <goods-list></goods-list>
-  <goods-list></goods-list>
+  <goods-list title="猜你喜欢" list="{{loveList}}"></goods-list>
+  <goods-list title="人气推荐" list="{{recommendList}}"></goods-list>
 </view>

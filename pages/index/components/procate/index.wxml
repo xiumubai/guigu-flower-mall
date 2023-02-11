@@ -6,8 +6,8 @@
     wx:key="index"
   >
     <navigator class="procate-nav" url="/">
-      <image class="procate-img" src="{{item.url}}" />
-      <text>{{item.text}}</text>
+      <image class="procate-img" src="{{item.imageUrl}}" />
+      <text>{{item.name}}</text>
     </navigator>
   </view>
 </view>
