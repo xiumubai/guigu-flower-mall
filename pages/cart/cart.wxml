@@ -49,10 +49,8 @@
     </view>
     <view class="right flex">
       <view class="total-wrapper">
-        合计：
-        <text class="total-price">
-          ¥{{totalPrice}}
-        </text>
+        <text>合计：</text>
+        <text class="total-price">¥{{totalPrice}}</text>
       </view>
       <view class="total-count">
         <van-button 
