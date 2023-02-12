@@ -15,6 +15,7 @@
       <van-field
         value="{{ value }}"
         label="地址"
+        bind:focus="onShowPopup"
         placeholder="省/市/区"
       />
       <van-field
@@ -34,4 +35,12 @@
   <view class="footer-btn">
     <van-button block type="primary" round>保存</van-button>
   </view>
+  <van-popup
+    show="{{ show }}"
+    position="botttom"
+    round
+    custom-style="height: 20%;"
+    bind:close="onClose">
+    <van-area area-list="{{ areaList }}" value="110101" />
+  </van-popup>
 </view>

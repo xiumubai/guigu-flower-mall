@@ -26,6 +26,10 @@
     </view>
   </view>
   <view class="footer">
-    <view class="btn">新建地址</view>
+    <view class="btn">
+      <navigator url="/pages/address/add/index" open-type="navigate">
+        新建地址
+        </navigator>
+      </view>
   </view>
 </view>

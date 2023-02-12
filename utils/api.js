@@ -134,3 +134,45 @@ export const checkAllCart = (isChecked) => {
     method: 'GET',
   });
 };
+
+/**
+ * 添加地址
+ */
+export const userAddressSave = (params) => {
+  return request({
+    url: `/mall-api/userAddress/save`,
+    method: 'POST',
+    data: params,
+  });
+};
+
+/**
+ * 修改地址
+ */
+export const userAddressUpdate = (params) => {
+  return request({
+    url: `/mall-api/userAddress/update`,
+    method: 'POST',
+    data: params,
+  });
+};
+
+/**
+ * 删除地址
+ */
+export const userAddressDelete = (id) => {
+  return request({
+    url: `/mall-api/userAddress/delete/${id}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 删除地址
+ */
+export const findUserAddress = (id) => {
+  return request({
+    url: `/mall-api/userAddress/findUserAddress/`,
+    method: 'GET',
+  });
+};

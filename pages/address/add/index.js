@@ -1,16 +1,32 @@
 // pages/address/add/index.js
+import { areaList } from '@vant/area-data';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     radio: '1',
+    show: false,
+    areaList,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {},
+
+  /**
+   * 打开popup
+   */
+  onShowPopup() {
+    this.setData({ show: true });
+  },
+  /**
+   * 关闭popup
+   */
+  onClose() {
+    this.setData({ show: false });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
