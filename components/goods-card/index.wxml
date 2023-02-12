@@ -1,6 +1,6 @@
 <!--components/goods-card/index.wxml-->
 <view class="product-item">
-  <navigator class="navigation">
+  <navigator class="navigation" url="/pages/goods/detail/index?goodsId={{item.id}}">
     <view class="product-item-pic">
       <image class="img" src="{{item.imageUrl}}" />
     </view>

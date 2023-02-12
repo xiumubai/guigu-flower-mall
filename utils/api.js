@@ -66,7 +66,71 @@ export const findCategoryTree = () => {
  */
 export const findGoodsList = (params) => {
   return request({
-    url: `/mall-api/index/findCategoryTree`,
+    url: `/mall-api/goods/list/${params.page}/${params.limit}`,
+    method: 'GET',
+    data: params,
+  });
+};
+
+/**
+ * 商品详情
+ */
+export const findGoodsDetail = (goodsId) => {
+  return request({
+    url: `/mall-api/goods/${goodsId}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 购物车列表
+ */
+
+export const findCartList = () => {
+  return request({
+    url: `/mall-api/cart/getCartList`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 加入购物车
+ */
+export const addToCart = (params) => {
+  return request({
+    url: `/mall-api/cart/addToCart/${params.goodsId}/${params.count}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 删除购物车
+ */
+
+export const deleteCart = (goodsId) => {
+  return request({
+    url: `/mall-api/cart/delete/${goodsId}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 选中与取消选中购物车
+ */
+export const checkCart = (params) => {
+  console.log(params);
+  return request({
+    url: `/mall-api/cart/checkCart/${params.goodsId}/${params.isChecked}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 全部选中与全部取消选中购物车商品
+ */
+export const checkAllCart = (isChecked) => {
+  return request({
+    url: `/mall-api/cart/checkAllCart/${isChecked}`,
     method: 'GET',
   });
 };

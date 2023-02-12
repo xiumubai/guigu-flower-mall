@@ -1,66 +1,85 @@
 // pages/goods/detail/index.js
+import { findGoodsDetail, addToCart } from '../../../utils/api';
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    goods: {},
+    show: false,
+    count: 1,
+    goodsId: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({ goodsId: options.goodsId });
+    this.getGoodsDetail(options.goodsId);
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 商品详情
    */
-  onReady() {
-
+  async getGoodsDetail(goodsId) {
+    const res = await findGoodsDetail(goodsId);
+    this.setData({
+      goods: res.data,
+    });
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 事件：加入购物车
    */
-  onShow() {
+  async handleAddCart() {
+    const { goodsId, count } = this.data;
+    if (count > 0) {
+      const res = await addToCart({
+        goodsId,
+        count,
+      });
 
+      console.log(res);
+
+      if (res.code === 200) {
+        wx.showToast({ title: '添加成功' });
+        this.setData({
+          show: false,
+        });
+      }
+    }
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 事件 打开action-sheet
    */
-  onHide() {
-
+  onSHowSheet() {
+    this.setData({
+      show: true,
+    });
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * 事件，关闭action-sheet
    */
-  onUnload() {
-
+  onClose() {
+    this.setData({ show: false, count: 1 });
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 事件：修改商品数量
    */
-  onPullDownRefresh() {
-
+  onChangeGoodsCount(event) {
+    this.setData({ count: event.detail });
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 事件：立即购买
    */
-  onReachBottom() {
-
+  handeGotoBuy() {
+    wx.navigateTo({
+      url: `/pages/order/detail/index?goodsId=${this.data.goodsId}`,
+    });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

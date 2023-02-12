@@ -2,7 +2,7 @@
  * @Author: 朽木白
  * @Date: 2023-02-10 23:11:51
  * @LastEditors: 1547702880@@qq.com
- * @LastEditTime: 2023-02-11 21:08:38
+ * @LastEditTime: 2023-02-12 17:31:39
  * @Description: wx.request
  * @docs: https://blog.csdn.net/qq_23073811/article/details/127387089
  */
@@ -25,7 +25,7 @@ export const request = (params) => {
 
   // 鉴权验证，获取登录之后后端返回的token，存在即在头部Authorization写token
   if (wx.getStorageSync('token')) {
-    header.Authorization = wx.getStorageSync('token');
+    header.token = wx.getStorageSync('token');
     // header.token = wx.getStorageSync('token');
   }
   return new Promise((resolve, reject) => {

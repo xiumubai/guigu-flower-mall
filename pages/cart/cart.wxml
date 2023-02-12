@@ -1,50 +1,67 @@
 <!--pages/ceremony/ceremony.wxml-->
 <view class="container goods-wrap">
   <view class="cart-wrap">
-    <view class="goods-item">
+    <view class="goods-item" wx:for="{{list}}" wx:key="index">
       <view class="left">
-        <van-checkbox checked-color="#FA4126" value="{{ checked }}" bind:change="onChange"></van-checkbox>
+        <van-checkbox
+          data-goodsid="{{item.goodsId}}"
+          checked-color="#FA4126"
+          value="{{ item.isChecked }}"
+          bind:change="onChangeCheck">
+        </van-checkbox>
       </view>
       <view class="mid">
-        <image class="img" src="https://img01.hua.com/uploadpic/newpic/9012637.jpg_220x240.jpg" />
+        <image class="img" src="{{item.imageUrl}}" />
       </view>
       <view class="right">
-        <view class="title">
-            腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
-        </view>
+        <view class="title">{{item.name}}</view>
         <view class="buy">
           <view class="price">
             <view class="symbol">¥</view>
-            <view class="num">99.00</view>
+            <view class="num">{{item.price}}</view>
           </view>
           <view class="buy-btn">
-            <van-stepper value="{{ price }}" bind:change="onChangePrice" />
-          </view>
-        </view>
-      </view>
-    </view>
-     <view class="goods-item">
-      <view class="left">
-        <van-checkbox checked-color="#FA4126" value="{{ checked }}" bind:change="onChange"></van-checkbox>
-      </view>
-      <view class="mid">
-        <image class="img" src="https://img01.hua.com/uploadpic/newpic/9012637.jpg_220x240.jpg" />
-      </view>
-      <view class="right">
-        <view class="title">
-            腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
-        </view>
-        <view class="buy">
-          <view class="price">
-            <view class="symbol">¥</view>
-            <view class="num">99.00</view>
-          </view>
-          <view class="buy-btn">
-            <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+            <van-icon 
+              bindtap="handleDelCart" 
+              data-goodsid="{{item.goodsId}}" 
+              size="18px" 
+              color="#71797f"
+              name="delete"
+              class="del"/>
+            <van-stepper 
+              value="{{ item.count }}" 
+              data-goodsid="{{item.goodsId}}" 
+              data-count="{{item.count}}" 
+              bind:change="onChangeCount" />
           </view>
         </view>
       </view>
     </view>
   </view>
+  <view class="submit-footer flex">
+    <view class="left">
+      <van-checkbox 
+        checked-color="#FA4126" 
+        value="{{ isCheckedAll }}" 
+        bind:change="onChangeCheckAll">
+        全选
+      </van-checkbox>
+    </view>
+    <view class="right flex">
+      <view class="total-wrapper">
+        合计：
+        <text class="total-price">
+          ¥{{totalPrice}}
+        </text>
+      </view>
+      <view class="total-count">
+        <van-button 
+          size="small" 
+          color="linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36))" 
+          round>
+          去结算({{totalCount}})
+        </van-button>
+      </view>
+    </view>
+  </view>
 </view>
-

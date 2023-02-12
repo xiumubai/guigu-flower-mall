@@ -2,8 +2,12 @@
   height: 100vh;
 }
 
+.flex {
+  display: flex;
+}
 .cart-wrap {
   padding-top: 20px;
+  padding-bottom: 100px;
   background-color: white;
 }
 .goods-item {
@@ -61,8 +65,52 @@
   font-size: 36rpx;
 }
 
+.buy-btn {
+  display: flex;
+  align-items: center;
+}
+
+.buy-btn .del {
+  margin-right: 4px;
+}
+
 .price .symbol {
   font-size: 10px;
   margin-right: 2px;
   margin-top: 8px;
+}
+
+.submit-footer {
+  position: fixed;
+  bottom: 56px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 12px 8px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.submit-footer .left {
+  /* flex: 1; */
+}
+
+.submit-footer .right {
+  flex: 1;
+  margin-right: 16px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.total-wrapper {
+  color: #323233;
+  font-size: 13px;
+}
+
+.total-wrapper .total-price {
+  color: #ee0a24;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 4px;
 }

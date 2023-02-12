@@ -13,7 +13,6 @@ Page({
         console.log(res.code);
         const { code } = res;
         login(code).then((res) => {
-          console.log(res);
           wx.showToast({
             title: '登陆成功',
           });

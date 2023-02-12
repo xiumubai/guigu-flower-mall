@@ -4,16 +4,9 @@
   <filter
     bind:showFilterPopup="showFilterPopup"
   >
-    <filter-group
-      slot="filterPopup"
-      show="{{show}}"
-      bind:showFilterPopupClose="showFilterPopupClose"
-    >
-      <view slot="filterSlot">12313</view>
-    </filter-group>
   </filter>
   <view class="goods-list">
-    <goods-card></goods-card>
+    <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
   </view>
 
 </view>

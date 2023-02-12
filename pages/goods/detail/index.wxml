@@ -1,38 +1,70 @@
 <!--pages/goods/detail/index.wxml-->
 <view class="container goods-detail">
   <view class="banner-img">
-    <image class="img" src="https://img01.hua.com/uploadpic/newpic/202301121534175016.jpg" />
+    <image class="img" mode="aspectFill" src="{{goods.imageUrl}}" />
   </view>
   <view class="content">
     <view class="price">
-      <view class="price-num">¥299</view>
-      <view class="price-origin-num">¥399</view>
+      <view class="price-num">¥{{goods.price}}</view>
+      <view class="price-origin-num">¥{{goods.marketPrice}}</view>
       
     </view>
-    <view class="title">亲爱的/情人节网红款/19枝亲爱的/情人节网红款/19枝亲爱的/情人节网红款/19枝</view>
-      <view class="desc">用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，用最温暖的最有情的心意，</view>
+    <view class="title">{{goods.name}}</view>
+      <view class="desc">{{goods.floralLanguage}}</view>
   </view>
   <view class="detail">
-    <image src="https://img01.hua.com/uploadpic/images/by_2023011209565932.jpg" />
-    <image src="https://img01.hua.com/uploadpic/images/by_20230112095659229.jpg" />
-    <image src="https://img01.hua.com/uploadpic/images/by_20230112095659364.jpg" />
+    <image class="img" mode="aspectFill" wx:for="{{goods.detailList}}" wx:key="index" src="{{item}}" />
   </view>
   <view class="footer">
     <view class="footer-cont flex flex-between">
       <view class="flex flex-between bottom-operate-left">
-        <view class="icon-wrap flex">
+        <navigator url="/pages/index/index" open-type="switchTab">
+          <view class="icon-wrap flex">
           <van-icon name="wap-home" color="#666" size="22px" />
           <text>首页</text>
         </view>
-        <view class="icon-wrap flex">
-          <van-icon name="shopping-cart" color="#666" size="22px"/>
-          <text>购物车</text>
-        </view>
+        </navigator>
+        <navigator url="/pages/cart/cart" open-type="switchTab">
+          <view class="icon-wrap flex">
+            <van-icon name="shopping-cart" color="#666" size="22px"/>
+            <text>购物车</text>
+          </view>
+        </navigator>
+        
       </view>
       <view class="flex buy-buttons">
-        <view class="bar-separately">加入购物车</view>
-        <view class="bar-buy">立即购买</view>
+        <view class="bar-separately" bindtap="onSHowSheet">加入购物车</view>
+        <view class="bar-buy" bindta="handeGotoBuy">立即购买</view>
       </view>
     </view>
   </view>
+
+  <van-action-sheet show="{{ show }}" bind:close="onClose">
+    
+    <view class="sheet-wrapper">
+      <view class="goods-item">
+        <view class="mid">
+          <image class="img" src="{{goods.imageUrl}}" />
+        </view>
+        <view class="right">
+          <view class="title">
+              {{goods.name}}
+          </view>
+          <view class="buy">
+            <view class="price">
+              <view class="symbol">¥</view>
+              <view class="num">{{goods.price}}</view>
+            </view>
+            <view class="buy-btn">
+              <van-stepper value="{{ count }}" bind:change="onChangeGoodsCount" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="sheet-footer-btn">
+        <van-button block type="primary" round bindtap="handleAddCart">确定</van-button>
+      </view>
+    </view>
+  </van-action-sheet>
 </view>

@@ -1,4 +1,5 @@
 // pages/goods/list/index.js
+import { findGoodsList } from '../../../utils/api';
 const initFilters = {
   overall: 1,
   sorts: '',
@@ -14,6 +15,9 @@ Page({
     sorts: '',
     overall: 1,
     show: false,
+    page: 1,
+    limit: 10,
+    list: [],
   },
 
   showFilterPopup() {
@@ -31,7 +35,23 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    this.getGoodsList();
+  },
+
+  /**
+   * 商品列表
+   */
+  async getGoodsList() {
+    const params = {
+      page: this.data.page,
+      limit: this.data.limit,
+    };
+    const res = await findGoodsList(params);
+    this.setData({
+      list: res.data.records,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
