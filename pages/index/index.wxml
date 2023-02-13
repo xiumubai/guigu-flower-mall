@@ -1,8 +1,30 @@
 <!--index.wxml-->
 <view class="container">
-  首页
-  <van-button type="primary">按钮</van-button>
-  <van-icon name="close" />
-  <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
-  <van-icon name="chat" color="red" />
+  <!-- 轮播图 -->
+  <view class="swiper-box">
+    <swiper 
+        indicator-dots="{{true}}"
+        indicator-color="#fff"
+        indicator-active-color="#FF734C"
+        autoplay="{{true}}"
+        interval="{{2000}}"
+        duration="{{500}}"
+      >
+        <block wx:for="{{bannerList}}" wx:key="index">
+          <swiper-item>
+            <image class="img" src="{{item.imageUrl}}" mode="widthFix"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <!-- 分类Nav -->
+  <procate category="{{categoryList}}"></procate>
+  <!-- 活动背景图 -->
+  <view class="festival-banner bg-white">
+     <image class="img" src="{{banner}}" mode="widthFix"></image>
+  </view>
+
+  <!-- 商品列表 -->
+  <goods-list title="猜你喜欢" list="{{loveList}}"></goods-list>
+  <goods-list title="人气推荐" list="{{recommendList}}"></goods-list>
 </view>

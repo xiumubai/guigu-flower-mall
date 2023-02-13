@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "filter": "/components/filter/index",
+    "goods-card": "/components/goods-card/index"
+  },
+  "navigationBarTitleText": "商品列表"
+}

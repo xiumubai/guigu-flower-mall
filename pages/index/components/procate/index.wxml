@@ -1,0 +1,13 @@
+<!--pages/index/components/procate/index.wxml-->
+<view class="procate bg-white">
+  <view
+    class="procate-item {{item.small ? 'small' : ''}}"
+    wx:for="{{category}}"
+    wx:key="index"
+  >
+    <navigator class="procate-nav" url="/">
+      <image class="procate-img" src="{{item.imageUrl}}" />
+      <text>{{item.name}}</text>
+    </navigator>
+  </view>
+</view>

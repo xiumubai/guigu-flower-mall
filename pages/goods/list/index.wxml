@@ -1,0 +1,12 @@
+<!--pages/goods/list/index.wxml-->
+
+<view class="container">
+  <filter
+    bind:showFilterPopup="showFilterPopup"
+  >
+  </filter>
+  <view class="goods-list">
+    <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
+  </view>
+
+</view>

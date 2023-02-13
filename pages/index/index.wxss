@@ -1,0 +1,7 @@
+.festival-banner {
+  margin-top: 14px;
+}
+
+.swiper-box {
+  margin-bottom: 12px;
+}

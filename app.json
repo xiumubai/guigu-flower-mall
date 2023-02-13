@@ -3,13 +3,20 @@
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/goods/list/index",
+    "pages/goods/detail/index",
+    "pages/order/detail/index",
+    "pages/order/list/index",
+    "pages/address/add/index",
+    "pages/address/list/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#9C0211",
+    "navigationBarTitleText": "慕尚花坊",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#252933",

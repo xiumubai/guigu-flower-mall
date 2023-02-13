@@ -1,0 +1,46 @@
+/* pages/index/components/procate/index.wxss */
+.procate {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 14px;
+  padding: 10px 0;
+  border-radius: 8px;
+}
+
+.procate-item {
+  flex: 1;
+  min-width: 20%;
+  max-width: 20%;
+}
+
+.procate-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.procate-img {
+  width: 44px;
+  height: 44px;
+}
+
+.procate-nav text {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.procate-item.small {
+  margin-top: 20px;
+}
+.procate-item.small .procate-img {
+  width: 19px;
+  height: 20px;
+}
+
+.procate-item.small text {
+  font-weight: 400;
+}

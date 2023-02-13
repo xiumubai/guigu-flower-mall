@@ -35,10 +35,12 @@
         <text class="title">我的功能</text>
       </view>
       <view class="order-content-wrap function">
-        <view class="order-content-item">
-          <view class="iconfont icon-daohangdizhi"></view>
-          <text>地址管理</text>
-        </view>
+        <navigator url="/pages/address/list/index" open-type="navigate">
+          <view class="order-content-item">
+            <view class="iconfont icon-daohangdizhi"></view>
+            <text>地址管理</text>
+          </view>
+        </navigator>
         <view class="order-content-item">
           <view class="iconfont icon-kefu_o"></view>
           <text>我的客服</text>
@@ -69,6 +71,6 @@
     <view class="info-footer">
        尚硅谷技术支持
     </view>
-   </view> 
+   </view>
 </view>
 

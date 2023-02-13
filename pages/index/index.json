@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
-    "van-icon": "@vant/weapp/icon/index"
-  }
+    "van-icon": "@vant/weapp/icon/index",
+    "goods-list": "./components/goods-list/index",
+    "procate": "./components/procate/index"
+  },
+  "navigationBarTitleText": "慕尚花坊"
 }

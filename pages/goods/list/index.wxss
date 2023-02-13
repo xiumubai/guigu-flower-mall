@@ -1,0 +1,4 @@
+/* pages/goods/list/index.wxss */
+.goods-list {
+  margin-top: 12px;
+}

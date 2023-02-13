@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "分类",
+  "usingComponents": {
+    "goods-category": "./components/goods-category/index"
+  }
 }

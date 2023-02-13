@@ -1,4 +1,7 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  分类
+<view class="container wrap">
+  <goods-category
+    category="{{list}}"
+    bind:changeCategory="onChange"
+  />
 </view>

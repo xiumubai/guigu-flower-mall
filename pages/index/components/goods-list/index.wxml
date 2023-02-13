@@ -1,0 +1,11 @@
+<!--components/goods-list/index.wxml-->
+
+<view class="product">
+  <view class="product-title">{{title}}</view>
+  <view class="product-list">
+    <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
+  </view>
+  <view class="product-more">
+    <navigator class="product-more-btn">查看更多</navigator>
+  </view>
+</view>

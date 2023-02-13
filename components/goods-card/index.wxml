@@ -1,0 +1,19 @@
+<!--components/goods-card/index.wxml-->
+<view class="product-item">
+  <navigator class="navigation" url="/pages/goods/detail/index?goodsId={{item.id}}">
+    <view class="product-item-pic">
+      <image class="img" src="{{item.imageUrl}}" />
+    </view>
+    <view class="product-item-info">
+      <text class="product-item-info-name">{{item.name}}</text>
+      <text class="product-item-info-promo">{{item.floralLanguage}}</text>
+      <view class="product-item-info-bottom">
+        <view class="product-item-info-price"><text class="pre">¥</text>{{item.price}}</view>
+        <view class="product-item-info-origin-price"><text class="pre">¥</text>{{item.marketPrice}}</view>
+        <view class="product-item-info-btn">
+          <image class="img" src="https://img02.hua.com/m/home/img/home_buy_btn.png" />
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
