@@ -41,6 +41,6 @@
     round
     custom-style="height: 20%;"
     bind:close="onClose">
-    <van-area area-list="{{ areaList }}" value="110101" />
+    <!-- <van-area area-list="{{ areaList }}" value="110101" /> -->
   </van-popup>
 </view>

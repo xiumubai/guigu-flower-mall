@@ -1,5 +1,5 @@
 // pages/address/add/index.js
-import { areaList } from '@vant/area-data';
+// import { areaList } from '@vant/area-data';
 Page({
   /**
    * 页面的初始数据
@@ -7,7 +7,6 @@ Page({
   data: {
     radio: '1',
     show: false,
-    areaList,
   },
 
   /**

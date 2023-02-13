@@ -1,30 +1,21 @@
 <!--pages/address/list/index.wxml-->
 
 <view class="container address-list">
-  <view class="title">我的收货地址</view>
-  <view class="list-warpper">
-    
-    <view class="list-item flex">
+  
+  <view class="list-warpper" wx:if="{{list.length === 0}}">
+    <view class="title">我的收货地址</view>
+    <view class="list-item flex" wx:for="{{list}}" wx:key="index">
       <view class="info">
-        <view class="address-info">甘肃省甘南藏族自治州碌曲县松日鼎盛大厦0层0号</view>
+        <view class="address-info">{{item.北京市昌平区立水桥奥北南区1单元105}}</view>
         <view class="user-info">
-          <view class="tag">家</view>
-          测试用户176****5678
-        </view>
-      </view>
-      <van-icon name="edit" size="22px" color="#999"/>
-    </view>
-    <view class="list-item flex">
-      <view class="info">
-        <view class="address-info">甘肃省甘南藏族自治州碌曲县松日鼎盛大厦0层0号</view>
-        <view class="user-info">
-          <view class="tag">公司</view>
-          测试用户176****5678
+          <view class="tag">{{item.tagName}}</view>
+          {{item.name}} {{item.phone}}
         </view>
       </view>
       <van-icon name="edit" size="22px" color="#999"/>
     </view>
   </view>
+  <van-empty wx:else description="还没有收获地址，快去添加吧～" />
   <view class="footer">
     <view class="btn">
       <navigator url="/pages/address/add/index" open-type="navigate">

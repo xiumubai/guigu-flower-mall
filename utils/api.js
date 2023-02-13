@@ -168,11 +168,11 @@ export const userAddressDelete = (id) => {
 };
 
 /**
- * 删除地址
+ * 地址列表
  */
 export const findUserAddress = (id) => {
   return request({
-    url: `/mall-api/userAddress/findUserAddress/`,
+    url: `/mall-api/userAddress/findUserAddress`,
     method: 'GET',
   });
 };
