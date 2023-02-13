@@ -1,12 +1,11 @@
+// pages/order/index.js
 import { buy, trade } from '../../../utils/api';
 
-// pages/order/index.js
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    price: 0,
     list: [],
     totoalPrice: 0,
   },

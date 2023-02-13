@@ -22,19 +22,30 @@
     </navigator>
     <view class="top-line"></view>
   </view>
-  <view class="goods-wraper">
-    <view class="time-wraper flex">
-      <view class="title">配送时间</view>
-      <view class="time">请选择配送时间</view>
-      <van-icon color="#BBBBBB" name="arrow" size="14px"/>
-    </view>
-    <view class="time-wraper">
-      <view class="title">订单备注</view>
-      <textarea 
+
+  <van-cell-group>
+    <van-field
+      value="{{ value }}"
+      label="订购人姓名"
+      placeholder="订购人的姓名"
+    />
+    <van-field
+      value="{{ value }}"
+      label="订购人手机号"
+      placeholder="订购人的手机号"
+    />
+    <van-cell title="配送时间" is-link value="请选择配送时间" />
+
+    <van-cell title="订单备注" border="{{false}}" use-label-slot>
+      <textarea
+        slot="label"
         class="form-textarea"
         placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）"
         name="textarea"/>
-    </view>
+    </van-cell>
+    
+  </van-cell-group>
+  <view class="goods-wraper">
     <view class="goods-list">
       <view class="goods-item flex" wx:for="{{list}}" wx:key="index">
         <view class="img">
