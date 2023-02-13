@@ -2,11 +2,11 @@
 
 <view class="container address-list">
   
-  <view class="list-warpper" wx:if="{{list.length === 0}}">
+  <view class="list-warpper" wx:if="{{list.length > 0}}">
     <view class="title">我的收货地址</view>
     <view class="list-item flex" wx:for="{{list}}" wx:key="index">
       <view class="info">
-        <view class="address-info">{{item.北京市昌平区立水桥奥北南区1单元105}}</view>
+        <view class="address-info">{{item.fullAddress}}</view>
         <view class="user-info">
           <view class="tag">{{item.tagName}}</view>
           {{item.name}} {{item.phone}}

@@ -30,7 +30,14 @@ Page({
   },
 
   /**
-   * 获取轮播图
+   * 事件：去结算
+   */
+  async handleGotoBy() {
+    wx.navigateTo({ url: '/pages/order/detail/index' });
+  },
+
+  /**
+   * 获取购物车列表
    */
   async getCartList() {
     const res = await findCartList();
@@ -104,7 +111,6 @@ Page({
     list.forEach((e) => {
       if (e.isChecked) {
         const n = e.price * e.count;
-        console.log(n);
         s = n + s;
       }
     });

@@ -68,7 +68,6 @@ Page({
    */
   async getRecommendGoods() {
     const res = await findRecommendGoods();
-    console.log('recommendList', res);
     this.setData({
       recommendList: res.data,
     });

@@ -83,6 +83,27 @@ export const findGoodsDetail = (goodsId) => {
 };
 
 /**
+ * 立即购买
+ */
+export const buy = (params) => {
+  return request({
+    url: `/mall-api/order/buy/${params.goodsId}`,
+    method: 'GET',
+    data: params,
+  });
+};
+
+/**
+ * 确认下单
+ */
+export const trade = () => {
+  return request({
+    url: `/mall-api/order/trade`,
+    method: 'GET',
+  });
+};
+
+/**
  * 购物车列表
  */
 
@@ -100,6 +121,7 @@ export const addToCart = (params) => {
   return request({
     url: `/mall-api/cart/addToCart/${params.goodsId}/${params.count}`,
     method: 'GET',
+    data: params,
   });
 };
 

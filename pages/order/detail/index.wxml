@@ -1,11 +1,14 @@
 <!--pages/order/index.wxml-->
 <view class="container order">
   <view class="address-card">
-    <view class="t-class t-cell t-hover t-middle">
+    <navigator url="/pages/address/list/index" open-type="navigate">
+      <view class="t-class t-cell t-hover t-middle">
       <van-icon size="22px" name="add" />
       <view class="t-cell__title-text">添加收货地址</view>
     </view>
-    <view class="order-address flex">
+    </navigator>
+    <navigator url="/pages/address/list/index" open-type="navigate">
+      <view class="order-address flex">
       <view class="address-content">
         <view class="title">甘肃省 甘南藏族自治州 碌曲县</view>
         <view class="detail">松日鼎盛大厦0层0号</view>
@@ -16,7 +19,7 @@
       </view>
       <van-icon color="#BBBBBB" name="arrow" size="22px"/>
     </view>
-    
+    </navigator>
     <view class="top-line"></view>
   </view>
   <view class="goods-wraper">
@@ -26,34 +29,28 @@
       <van-icon color="#BBBBBB" name="arrow" size="14px"/>
     </view>
     <view class="time-wraper">
-      <view class="title">贺卡备注</view>
+      <view class="title">订单备注</view>
       <textarea 
         class="form-textarea"
-        placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）" name="textarea"/>
+        placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）"
+        name="textarea"/>
     </view>
     <view class="goods-list">
-      <view class="goods-item flex">
+      <view class="goods-item flex" wx:for="{{list}}" wx:key="index">
         <view class="img">
           <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
         </view>
         <view class="content">
-          <view class="goods-title">[鲜花]韩式花篮/阳光使者</view>
-          <view class="goods-price">¥99.0</view>
+          <view class="goods-title">{{item.name}}</view>
+          <view class="goods-price">{{item.price}}</view>
         </view>
         <view class="num">
-          <van-stepper value="{{ price }}" bind:change="onChangePrice" />
-        </view>
-      </view>
-       <view class="goods-item flex">
-        <view class="img">
-          <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
-        </view>
-        <view class="content">
-          <view class="goods-title">[鲜花]韩式花篮/阳光使者</view>
-          <view class="goods-price">¥99.0</view>
-        </view>
-        <view class="num">
-          <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+          <van-stepper value="{{ item.count }}" 
+            data-goodsid="{{item.goodsId}}"
+            bind:change="onChangeCount"
+            bind:plus="onPlusCount"
+            disable-input
+            bind:minus="onMinusCount" />
         </view>
       </view>
     </view>
@@ -65,8 +62,8 @@
   </view>
   <view class="footer flex">
     <view class="left">
-      ¥499
+      ¥{{totoalPrice}}
     </view>
-    <viwe class="right">去结算</viwe>
+    <viwe class="right" bindtap="handleGoToPay">去结算</viwe>
   </view>
 </view>
