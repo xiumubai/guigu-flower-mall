@@ -70,13 +70,11 @@ Page({
     const goodsId = event.target.dataset.goodsid;
     const originCount = event.target.dataset.count;
     const count = newCount - originCount;
-
-    console.log(count, goodsId);
-    if (count > 0) {
-      await addToCart({
-        goodsId,
-        count,
-      });
+    const res = await addToCart({
+      goodsId,
+      count,
+    });
+    if (res.code === 200) {
       this.getCartList();
     }
   },
