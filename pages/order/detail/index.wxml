@@ -1,13 +1,18 @@
 <!--pages/order/index.wxml-->
 <view class="container order">
   <view class="address-card">
-    <navigator url="/pages/address/list/index" open-type="navigate">
+    <!-- 用户没有默认地址 -->
+    <navigator 
+      wx:if="{{!hasAddress}}" 
+      url="/pages/address/list/index" 
+      open-type="navigate">
       <view class="t-class t-cell t-hover t-middle">
       <van-icon size="22px" name="add" />
-      <view class="t-cell__title-text">添加收货地址</view>
+      <view class="t-cell__title-text">添加收货人地址</view>
     </view>
     </navigator>
-    <navigator url="/pages/address/list/index" open-type="navigate">
+    <!-- 用户有默认地址，展示默认地址 -->
+    <navigator wx:else url="/pages/address/list/index" open-type="navigate">
       <view class="order-address flex">
       <view class="address-content">
         <view class="title">甘肃省 甘南藏族自治州 碌曲县</view>
@@ -25,20 +30,21 @@
 
   <van-cell-group>
     <van-field
-      value="{{ value }}"
+      model:value="{{ buyName }}"
       label="订购人姓名"
       placeholder="订购人的姓名"
     />
     <van-field
-      value="{{ value }}"
+      model:value="{{ buyPhone }}"
       label="订购人手机号"
       placeholder="订购人的手机号"
     />
-    <van-cell title="配送时间" is-link value="请选择配送时间" />
+    <van-cell title="期望送达日期" is-link value="{{deliveryDate}}" bind:click="onShowDateTimerPopUp"/>
 
     <van-cell title="订单备注" border="{{false}}" use-label-slot>
       <textarea
         slot="label"
+        model:value="{{remarks}}"
         class="form-textarea"
         placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）"
         name="textarea"/>
@@ -77,4 +83,21 @@
     </view>
     <viwe class="right" bindtap="handleGoToPay">去结算</viwe>
   </view>
+
+  <van-popup
+    show="{{ show }}"
+    round
+    position="bottom"
+    custom-style="height: 50%"
+    bind:close="onClose"
+  >
+    <van-datetime-picker
+      type="date"
+      min-date="{{minDate}}"
+      model:value="{{ currentDate }}"
+      bind:confirm="onConfirmTimerPicker"
+      bind:cancel="onCancelTimePicker"
+    />
+  </van-popup>
+
 </view>

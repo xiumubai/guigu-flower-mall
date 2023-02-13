@@ -118,6 +118,7 @@
   font-size: 13px;
   margin-top: 12px;
   width: 94%;
+  height: 80px;
 }
 
 .goods-list {
