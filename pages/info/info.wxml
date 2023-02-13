@@ -35,7 +35,7 @@
         <text class="title">我的功能</text>
       </view>
       <view class="order-content-wrap function">
-        <navigator url="/pages/address/list/index" open-type="navigate">
+        <navigator url="/pages/address/list/index?isBack=0" open-type="navigate">
           <view class="order-content-item">
             <view class="iconfont icon-daohangdizhi"></view>
             <text>地址管理</text>

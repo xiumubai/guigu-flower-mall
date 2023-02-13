@@ -5,6 +5,7 @@
     "van-stepper": "@vant/weapp/stepper/index",
     "van-submit-bar": "@vant/weapp/submit-bar/index",
     "van-button": "@vant/weapp/button/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-empty": "@vant/weapp/empty/index"
   }
 }

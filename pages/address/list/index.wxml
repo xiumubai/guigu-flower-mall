@@ -5,7 +5,7 @@
   <view class="list-warpper" wx:if="{{list.length > 0}}">
     <view class="title">我的收货地址</view>
     <view class="list-item flex" wx:for="{{list}}" wx:key="index">
-      <view class="info">
+      <view class="info" bindtap="handleSlelectAddress" data-addressid="{{item.id}}">
         <view class="address-info">
           <text>{{item.fullAddress}}</text>
           <text wx:if="{{item.isDefault}}" class="default-tag">默认</text>

@@ -104,9 +104,39 @@ export const trade = () => {
 };
 
 /**
+ * 提交订单
+ */
+export const submitOrder = (params) => {
+  return request({
+    url: `/mall-api/order/submitOrder`,
+    method: 'POST',
+    data: params,
+  });
+};
+
+/**
+ * 微信下单
+ */
+export const createJsapi = (orderNo) => {
+  return request({
+    url: `/mall-api/webChat/createJsapi/${orderNo}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 查询支付结果
+ */
+export const queryPayStatus = (orderNo) => {
+  return request({
+    url: `/mall-api/webChat/queryPayStatus/${orderNo}`,
+    method: 'GET',
+  });
+};
+
+/**
  * 购物车列表
  */
-
 export const findCartList = () => {
   return request({
     url: `/mall-api/cart/getCartList`,
@@ -204,6 +234,36 @@ export const userAddressDelete = (id) => {
 export const findUserAddress = () => {
   return request({
     url: `/mall-api/userAddress/findUserAddress`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 根据地址id获取单个地址详情
+ */
+export const findUserAddressById = (id) => {
+  return request({
+    url: `/mall-api/userAddress/${id}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 选择收货地址
+ */
+export const selectAddressById = (id) => {
+  return request({
+    url: `/mall-api/userAddress/selectAddress/${id}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 获取收货地址信息
+ */
+export const getOrderAddress = () => {
+  return request({
+    url: `/mall-api/userAddress/getOrderAddress`,
     method: 'GET',
   });
 };

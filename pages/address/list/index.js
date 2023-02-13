@@ -1,17 +1,24 @@
 // pages/address/list/index.js
-import { findUserAddress, userAddressDelete } from '../../../utils/api';
+import {
+  findUserAddress,
+  userAddressDelete,
+  selectAddressById,
+} from '../../../utils/api';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     list: [],
+    isBack: 1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    this.setData({ isBack: options.isBack });
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -25,8 +32,20 @@ Page({
    */
   async getAddreassList() {
     const res = await findUserAddress();
-    console.log(res);
     this.setData({ list: res.data });
+  },
+
+  /**
+   * 事件：选择地址
+   */
+  async handleSlelectAddress(event) {
+    if (this.data.isBack) {
+      const { addressid } = event.target.dataset;
+      const res = await selectAddressById(addressid);
+      if (res.code === 200) {
+        wx.navigateBack();
+      }
+    }
   },
 
   /**

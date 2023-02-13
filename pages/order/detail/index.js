@@ -1,5 +1,12 @@
 // pages/order/index.js
-import { buy, trade, findUserAddress } from '../../../utils/api';
+import {
+  buy,
+  trade,
+  submitOrder,
+  createJsapi,
+  queryPayStatus,
+  getOrderAddress,
+} from '../../../utils/api';
 import { formatDate } from '../../../utils/index';
 Page({
   /**
@@ -8,6 +15,7 @@ Page({
   data: {
     list: [],
     totoalPrice: 0,
+    // 收货人地址
     address: {},
     show: false,
     // 用户是否有默认地址
@@ -22,6 +30,8 @@ Page({
     userAddressId: '',
     // 期望送达日期
     deliveryDate: '请选择配送时间',
+    // 订单编号
+    orderNo: '',
     minDate: new Date().getTime(),
     currentDate: new Date().getTime(),
   },
@@ -87,7 +97,7 @@ Page({
   /**
    * 事件：去结算
    */
-  handleGoToPay() {
+  async handleGoToPay() {
     const { buyName, buyPhone, deliveryDate, remarks, userAddressId, list } =
       this.data;
     const params = {
@@ -101,7 +111,81 @@ Page({
 
     // 支付成功，跳转到支付成功页面
     console.log(params);
+    if (
+      buyName &&
+      buyPhone &&
+      deliveryDate &&
+      remarks &&
+      userAddressId &&
+      list.length > 0
+    ) {
+      const res = await submitOrder(params);
+      if (res.code === 200) {
+        console.log(res);
+        const orderNo = res.data;
+        this.setData({ orderNo });
+        this.createPay(orderNo);
+      }
+    } else {
+      wx.showToast({
+        icon: 'error',
+        title: '请填写完整信息~',
+      });
+    }
   },
+  /**
+   * 请求微信下单接口
+   */
+  async createPay(orderNo) {
+    const res = await createJsapi(orderNo);
+    if (res.code === 200) {
+      console.log(res);
+      this.createWxPay(res.data);
+    }
+  },
+
+  /**
+   * 请求微信支付接口
+   */
+  async createWxPay(data) {
+    const that = this;
+    wx.requestPayment({
+      timeStamp: data.timeStamp,
+      nonceStr: data.nonceStr,
+      package: data.package,
+      signType: data.signType,
+      paySign: data.paySign,
+      success(data) {
+        console.log('pay-success', data);
+        that.queryPayResult();
+      },
+      fail(e) {
+        wx.showToast({
+          icon: 'error',
+          title: '支付失败',
+        });
+      },
+    });
+  },
+
+  /**
+   * 查询支付结果
+   */
+  async queryPayResult() {
+    const res = await queryPayStatus(this.data.orderNo);
+    // 支付成功，跳转到支付成功页面
+    if (res.code === 200) {
+      wx.showToast({
+        title: '支付成功',
+        success() {
+          wx.navigateTo({
+            url: '/pages/order/result/index',
+          });
+        },
+      });
+    }
+  },
+
   /**
    * 事件：修改商品数量
    */
@@ -173,13 +257,13 @@ Page({
    * 获取用户默认地址
    */
   async getUserDefaultAddress() {
-    const res = await findUserAddress();
-    if (res.code === 200 && res.data.length > 0) {
-      res.code.forEach((item) => {
-        if (item.isDefault) {
-          // 选择默认地址作为收货人的地址信息
-          this.setData({ address: item, hasAddress: true });
-        }
+    const res = await getOrderAddress();
+    const data = res.data;
+    if (res.code === 200 && JSON.stringify(data) !== '{}') {
+      this.setData({
+        address: data,
+        hasAddress: true,
+        userAddressId: data.id,
       });
     } else {
       this.setData({ address: {}, hasAddress: false });

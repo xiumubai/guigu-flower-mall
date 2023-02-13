@@ -1,6 +1,6 @@
 <!--pages/ceremony/ceremony.wxml-->
 <view class="container goods-wrap">
-  <view class="cart-wrap">
+  <view class="cart-wrap" wx:if="{{list.length > 0}}">
     <view class="goods-item" wx:for="{{list}}" wx:key="index">
       <view class="left">
         <van-checkbox
@@ -38,6 +38,7 @@
       </view>
     </view>
   </view>
+  <van-empty wx:else description="还没有添加商品，快去添加吧～" />
   <view class="submit-footer flex">
     <view class="left">
       <van-checkbox 

@@ -21,7 +21,7 @@ Component({
         text: '购物车',
         iconPath: '/static/tabbar/home-icon3.png',
         selectedIconPath: '/static/tabbar/home-icon3-3.png',
-        info: 100,
+        info: 0,
       },
       {
         pagePath: '/pages/info/info',

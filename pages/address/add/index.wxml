@@ -15,7 +15,7 @@
       
       <picker mode="region" bindchange="onRegionChange" >
         <van-field
-          value="{{ fullAddress }}"
+          value="{{ region }}"
           label="地址"
           placeholder="省/市/区"
         />

@@ -4,7 +4,7 @@
     <!-- 用户没有默认地址 -->
     <navigator 
       wx:if="{{!hasAddress}}" 
-      url="/pages/address/list/index" 
+      url="/pages/address/list/index?isBack=1" 
       open-type="navigate">
       <view class="t-class t-cell t-hover t-middle">
       <van-icon size="22px" name="add" />
@@ -12,14 +12,17 @@
     </view>
     </navigator>
     <!-- 用户有默认地址，展示默认地址 -->
-    <navigator wx:else url="/pages/address/list/index" open-type="navigate">
+    <navigator 
+      wx:else 
+      url="/pages/address/list/index?isBack=1"
+      open-type="navigate">
       <view class="order-address flex">
       <view class="address-content">
-        <view class="title">甘肃省 甘南藏族自治州 碌曲县</view>
-        <view class="detail">松日鼎盛大厦0层0号</view>
+        <view class="title">{{address.fullAddress}}</view>
+        <view class="detail">{{address.address}}</view>
         <view class="info flex">
-          <text>测试</text>
-          <text>130839991443</text>
+          <text>{{address.name}}</text>
+          <text>{{address.phone}}</text>
         </view>
       </view>
       <van-icon color="#BBBBBB" name="arrow" size="22px"/>
