@@ -6,13 +6,19 @@
     <view class="title">我的收货地址</view>
     <view class="list-item flex" wx:for="{{list}}" wx:key="index">
       <view class="info">
-        <view class="address-info">{{item.fullAddress}}</view>
+        <view class="address-info">
+          <text>{{item.fullAddress}}</text>
+          <text wx:if="{{item.isDefault}}" class="default-tag">默认</text>
+        </view>
         <view class="user-info">
           <view class="tag">{{item.tagName}}</view>
           {{item.name}} {{item.phone}}
         </view>
       </view>
-      <van-icon name="edit" size="22px" color="#999"/>
+      <view class="edit-address">
+        <van-icon bindtap="handleEditAddress" data-id="{{item.id}}" class="edit" name="edit" size="22px" color="#999"/>
+        <van-icon bindtap="handleDelAddress" data-id="{{item.id}}" name="delete" size="22px" color="#999"/>
+      </view>
     </view>
   </view>
   <van-empty wx:else description="还没有收获地址，快去添加吧～" />

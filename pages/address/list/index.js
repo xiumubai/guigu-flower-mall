@@ -1,5 +1,5 @@
 // pages/address/list/index.js
-import { findUserAddress } from '../../../utils/api';
+import { findUserAddress, userAddressDelete } from '../../../utils/api';
 Page({
   /**
    * 页面的初始数据
@@ -28,33 +28,34 @@ Page({
     console.log(res);
     this.setData({ list: res.data });
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {},
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 编辑地址
    */
-  onHide() {},
-
+  handleEditAddress(event) {
+    const { id } = event.target.dataset;
+    wx.navigateTo({
+      url: `/pages/address/add/index?id=${id}`,
+    });
+  },
   /**
-   * 生命周期函数--监听页面卸载
+   * 删除地址
    */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  handleDelAddress(event) {
+    const { id } = event.target.dataset;
+    const that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认删除该用户地址吗？',
+      async success(res) {
+        if (res.confirm) {
+          const res = await userAddressDelete(id);
+          if (res.code === 200) {
+            wx.showToast({ title: '删除成功' });
+            that.getAddreassList();
+          }
+        }
+      },
+    });
+  },
 });

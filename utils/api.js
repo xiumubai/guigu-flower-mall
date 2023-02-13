@@ -158,6 +158,15 @@ export const checkAllCart = (isChecked) => {
 };
 
 /**
+ * 获取地址省市区节点
+ */
+export const findRegionList = (parentCode) => {
+  return request({
+    url: `/mall-api/region/findRegionList/${parentCode}`,
+    method: 'GET',
+  });
+};
+/**
  * 添加地址
  */
 export const userAddressSave = (params) => {
@@ -192,7 +201,7 @@ export const userAddressDelete = (id) => {
 /**
  * 地址列表
  */
-export const findUserAddress = (id) => {
+export const findUserAddress = () => {
   return request({
     url: `/mall-api/userAddress/findUserAddress`,
     method: 'GET',

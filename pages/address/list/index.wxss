@@ -66,6 +66,19 @@
   color: #5a66ff;
 }
 
+.default-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 0rpx 8rpx;
+  background: #ffece9;
+  color: #fa4126;
+  margin-left: 4px;
+}
+
+.edit-address .edit {
+  margin-right: 16px;
+}
+
 .info {
   margin-right: 16px;
 }
