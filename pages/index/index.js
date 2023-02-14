@@ -12,6 +12,7 @@ Page({
     banner: banner,
     loveList: [],
     recommendList: [],
+    bottom: 0,
   },
 
   /**
@@ -81,6 +82,7 @@ Page({
       this.getTabBar().setData({
         selected: 0,
       });
+      this.setData({ bottom: this.getTabBar().data.tabbarHeight });
     }
   },
 

@@ -1,77 +1,78 @@
 <!--pages/info/info.wxml-->
-<view class="container bg" >
-  <!-- 顶部展示图 -->
-  <view class="top-show">
-    <image mode="aspectFit" class="top-show-img" src="/static/images/banner1.jpg"></image>
-  </view>
-   <view class="wrap">
-    <view class="user-container section">
-      <image src="{{info.headimgurl || defaultImg}}"></image>
-      <text class="ellipsis" wx:if="{{info.nickname}}">{{info.nickname}}</text>
-      <text class="ellipsis" wx:else bindtap="gotoLogin">请登陆</text>
+<layout bottom="{{bottom}}">
+  <view class="container bg" >
+    <!-- 顶部展示图 -->
+    <view class="top-show">
+      <image mode="aspectFit" class="top-show-img" src="/static/images/banner1.jpg"></image>
     </view>
-    <view class="order section">
-      <view class="order-title-wrap">
-        <text class="title">我的订单</text>
-        <text class="more">查看更多></text>
+    <view class="wrap">
+      <view class="user-container section">
+        <image src="{{info.headimgurl || defaultImg}}"></image>
+        <text class="ellipsis" wx:if="{{info.nickname}}">{{info.nickname}}</text>
+        <text class="ellipsis" wx:else bindtap="gotoLogin">请登陆</text>
       </view>
-      <view class="order-content-wrap">
-        <view class="order-content-item" bindtap="gotoOrderList">
-          <view class="iconfont icon-dingdan"></view>
-          <text>商品订单</text>
+      <view class="order section">
+        <view class="order-title-wrap">
+          <text class="title">我的订单</text>
+          <text class="more">查看更多></text>
         </view>
-        <view class="order-content-item">
-          <view class="iconfont icon-lipinka"></view>
-          <text>礼品卡订单</text>
-        </view>
-        <view class="order-content-item">
-          <view class="iconfont icon-tuikuan"></view>
-          <text>退款/售后</text>
-        </view>
-        
-      </view>
-    </view>
-    <view class="order section">
-      <view class="order-title-wrap">
-        <text class="title">我的功能</text>
-      </view>
-      <view class="order-content-wrap function">
-        <navigator url="/pages/address/list/index?isBack=0" open-type="navigate">
-          <view class="order-content-item">
-            <view class="iconfont icon-daohangdizhi"></view>
-            <text>地址管理</text>
+        <view class="order-content-wrap">
+          <view class="order-content-item" bindtap="gotoOrderList">
+            <view class="iconfont icon-dingdan"></view>
+            <text>商品订单</text>
           </view>
-        </navigator>
-        <view class="order-content-item">
-          <view class="iconfont icon-kefu_o"></view>
-          <text>我的客服</text>
+          <view class="order-content-item">
+            <view class="iconfont icon-lipinka"></view>
+            <text>礼品卡订单</text>
+          </view>
+          <view class="order-content-item">
+            <view class="iconfont icon-tuikuan"></view>
+            <text>退款/售后</text>
+          </view>
+          
         </view>
       </view>
+      <view class="order section">
+        <view class="order-title-wrap">
+          <text class="title">我的功能</text>
+        </view>
+        <view class="order-content-wrap function">
+          <navigator url="/pages/address/list/index?isBack=0" open-type="navigate">
+            <view class="order-content-item">
+              <view class="iconfont icon-daohangdizhi"></view>
+              <text>地址管理</text>
+            </view>
+          </navigator>
+          <view class="order-content-item">
+            <view class="iconfont icon-kefu_o"></view>
+            <text>我的客服</text>
+          </view>
+        </view>
+      </view>
+      <view class="after-scale section">
+        <view class="order-title-wrap">
+          <text class="title">关于售前售后服务</text>
+        </view>
+        <view class="after-scale-item">
+          <view class="iconfont icon-kefu_o"></view>
+          <text>可与小程序客服实时聊天或电话咨询</text>
+        </view>
+        <view class="after-scale-item">
+          <view class="iconfont icon-shijian"></view>
+          <text>小程序客服工作时间为: 8:30 ~ 20:30</text>
+        </view>
+        <view class="after-scale-item">
+          <view class="iconfont icon-dizhiguanli"></view>
+          <text>鲜花制作完毕情况下暂不支持退款</text>
+        </view>
+        <view class="after-scale-item">
+          <view class="iconfont icon-zhangben"></view>
+          <text>鲜花可以提前7-15天预订重大节假日不支持定时配送</text>
+        </view>
+      </view>
+      <view class="info-footer">
+        尚硅谷技术支持
+      </view>
     </view>
-    <view class="after-scale section">
-      <view class="order-title-wrap">
-        <text class="title">关于售前售后服务</text>
-      </view>
-      <view class="after-scale-item">
-         <view class="iconfont icon-kefu_o"></view>
-         <text>可与小程序客服实时聊天或电话咨询</text>
-      </view>
-      <view class="after-scale-item">
-         <view class="iconfont icon-shijian"></view>
-         <text>小程序客服工作时间为: 8:30 ~ 20:30</text>
-      </view>
-      <view class="after-scale-item">
-         <view class="iconfont icon-dizhiguanli"></view>
-         <text>鲜花制作完毕情况下暂不支持退款</text>
-      </view>
-      <view class="after-scale-item">
-         <view class="iconfont icon-zhangben"></view>
-         <text>鲜花可以提前7-15天预订重大节假日不支持定时配送</text>
-      </view>
-    </view>
-    <view class="info-footer">
-       尚硅谷技术支持
-    </view>
-   </view>
-</view>
-
+  </view>
+</layout>

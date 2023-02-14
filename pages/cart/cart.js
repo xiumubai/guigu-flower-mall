@@ -6,7 +6,6 @@ import {
   checkAllCart,
 } from '../../utils/api';
 const app = getApp();
-
 Page({
   data: {
     checked: true,
@@ -15,6 +14,7 @@ Page({
     totalCount: 0,
     totalPrice: 0,
     isCheckedAll: false,
+    bottom: 0,
   },
 
   /**
@@ -27,6 +27,7 @@ Page({
       this.getTabBar().setData({
         selected: 2,
       });
+      this.setData({ bottom: this.getTabBar().data.tabbarHeight });
     }
     this.getCartList();
   },

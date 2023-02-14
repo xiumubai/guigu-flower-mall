@@ -1,21 +1,21 @@
 <!--index.wxml-->
-<view class="container">
+<layout bottom="{{bottom}}">
   <!-- 轮播图 -->
   <view class="swiper-box">
     <swiper 
-        indicator-dots="{{true}}"
-        indicator-color="#fff"
-        indicator-active-color="#FF734C"
-        autoplay="{{true}}"
-        interval="{{2000}}"
-        duration="{{500}}"
-      >
-        <block wx:for="{{bannerList}}" wx:key="index">
-          <swiper-item>
-            <image class="img" src="{{item.imageUrl}}" mode="widthFix"></image>
-          </swiper-item>
-        </block>
-      </swiper>
+      indicator-dots="{{true}}"
+      indicator-color="#fff"
+      indicator-active-color="#FF734C"
+      autoplay="{{true}}"
+      interval="{{2000}}"
+      duration="{{500}}"
+    >
+      <block wx:for="{{bannerList}}" wx:key="index">
+        <swiper-item>
+          <image class="img" src="{{item.imageUrl}}" mode="widthFix"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <!-- 分类Nav -->
   <procate category="{{categoryList}}"></procate>
@@ -27,4 +27,4 @@
   <!-- 商品列表 -->
   <goods-list title="猜你喜欢" list="{{loveList}}"></goods-list>
   <goods-list title="人气推荐" list="{{recommendList}}"></goods-list>
-</view>
+</layout>

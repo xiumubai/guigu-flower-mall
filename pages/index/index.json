@@ -4,6 +4,7 @@
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index",
     "goods-list": "./components/goods-list/index",
-    "procate": "./components/procate/index"
+    "procate": "./components/procate/index",
+    "layout": "/components/layout/index"
   }
 }

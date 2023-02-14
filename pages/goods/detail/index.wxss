@@ -1,6 +1,7 @@
 /* pages/goods/detail/index.wxss */
 .goods-detail {
   height: 100%;
+  padding-bottom: 60px;
 }
 
 .banner-img {

@@ -33,12 +33,24 @@ Component({
         selectedIconPath: '/static/tabbar/home-icon4-4.png',
       },
     ],
+    tabbarHeight: 0,
   },
 
   lifetimes: {
     attached() {
       let self = this;
       app.watch(self.watchBack.bind(self));
+    },
+    ready() {
+      // 缓存tabber的高度
+      const that = this;
+      const query = wx.createSelectorQuery().in(this);
+      query
+        .select('.tab-bar')
+        .boundingClientRect((rect) => {
+          that.setData({ tabbarHeight: rect.height });
+        })
+        .exec();
     },
   },
   methods: {
