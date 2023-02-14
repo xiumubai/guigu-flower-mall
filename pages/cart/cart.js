@@ -5,6 +5,8 @@ import {
   addToCart,
   checkAllCart,
 } from '../../utils/api';
+const app = getApp();
+
 Page({
   data: {
     checked: true,
@@ -12,7 +14,7 @@ Page({
     list: [],
     totalCount: 0,
     totalPrice: 0,
-    isCheckedAll: true,
+    isCheckedAll: false,
   },
 
   /**
@@ -99,6 +101,8 @@ Page({
       return (s += item.count);
     });
     this.setData({ totalCount: s });
+    // 设置购物车徽标数量
+    app.globalData.cartCount = s;
   },
   /**
    * 计算购物车商品总价
@@ -136,6 +140,10 @@ Page({
    * 获取全选状态
    */
   getCheckAllStatus() {
+    if (!this.data.list.length) {
+      this.setData({ isCheckedAll: false });
+      return;
+    }
     this.setData({ isCheckedAll: true });
     this.data.list.map((item) => {
       if (!item.isChecked) {

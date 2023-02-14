@@ -23,7 +23,6 @@ Page({
             statusBarHeight: result.statusBarHeight,
           },
         });
-        console.log(result.statusBarHeight);
       },
     });
   },
@@ -34,7 +33,6 @@ Page({
         selected: 3,
       });
     }
-    console.log(1);
     this.setData({ info: wx.getStorageSync('info') });
   },
 
