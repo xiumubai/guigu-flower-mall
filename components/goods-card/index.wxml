@@ -2,7 +2,7 @@
 <view class="product-item">
   <navigator class="navigation" url="/pages/goods/detail/index?goodsId={{item.id}}">
     <view class="product-item-pic">
-      <image class="img" src="{{item.imageUrl}}" />
+      <image mode="heightFix" src="{{item.imageUrl}}" />
     </view>
     <view class="product-item-info">
       <text class="product-item-info-name">{{item.name}}</text>

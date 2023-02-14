@@ -16,11 +16,8 @@
 }
 
 .product-item-pic {
-  height: 205px;
-}
-
-.product-item-pic image {
-  height: 100%;
+  /* height: px; */
+  width: 100%;
 }
 
 .product-item-info {
