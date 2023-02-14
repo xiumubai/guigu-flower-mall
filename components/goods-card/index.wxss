@@ -15,6 +15,14 @@
   display: block;
 }
 
+.product-item-pic {
+  height: 205px;
+}
+
+.product-item-pic image {
+  height: 100%;
+}
+
 .product-item-info {
   padding: 8px 10px;
   display: flex;
