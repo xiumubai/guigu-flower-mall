@@ -38,10 +38,10 @@ Page({
   /**
    * 事件：选择地址
    */
-  async handleSlelectAddress(event) {
+  async handleSelectAddress(event) {
     if (this.data.isBack) {
-      const { addressid } = event.target.dataset;
-      const res = await selectAddressById(addressid);
+      const { id } = event.currentTarget.dataset;
+      const res = await selectAddressById(id);
       if (res.code === 200) {
         wx.navigateBack();
       }

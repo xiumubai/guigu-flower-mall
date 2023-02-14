@@ -5,14 +5,14 @@
   <view class="list-warpper" wx:if="{{list.length > 0}}">
     <view class="title">我的收货地址</view>
     <view class="list-item flex" wx:for="{{list}}" wx:key="index">
-      <view class="info" bindtap="handleSlelectAddress" data-addressid="{{item.id}}">
+      <view class="info" data-id="{{item.id}}" bindtap="handleSelectAddress">
         <view class="address-info">
           <text>{{item.fullAddress}}</text>
           <text wx:if="{{item.isDefault}}" class="default-tag">默认</text>
         </view>
         <view class="user-info">
           <view class="tag">{{item.tagName}}</view>
-          {{item.name}} {{item.phone}}
+          <text>{{item.name}} {{item.phone}}</text>
         </view>
       </view>
       <view class="edit-address">
