@@ -107,6 +107,10 @@
   flex: 1;
 }
 
+.filed-label {
+  color: #323233 !important;
+}
+
 .time {
   margin-right: 4px;
 }

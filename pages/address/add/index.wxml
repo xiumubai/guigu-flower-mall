@@ -3,24 +3,30 @@
   <form class="form-content">
     <van-cell-group>
       <van-field
+        label-class="filed-label"
         model:value="{{ name }}"
         label="收货人"
         placeholder="您的姓名"
       />
       <van-field
+        label-class="filed-label"
         model:value="{{ phone }}"
         label="手机号"
+        type="number"
+        maxlength="11"
         placeholder="联系您的手机号"
       />
       
       <picker mode="region" bindchange="onRegionChange" >
         <van-field
+          label-class="filed-label"
           value="{{ region }}"
           label="地址"
           placeholder="省/市/区"
         />
       </picker>
       <van-field
+        label-class="filed-label"
         model:value="{{ address }}"
         label="详细地址"
         placeholder="门牌号等(例如:10栋1001号)"

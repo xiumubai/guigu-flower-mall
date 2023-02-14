@@ -33,13 +33,17 @@
 
   <van-cell-group>
     <van-field
+      label-class="filed-label"
       model:value="{{ buyName }}"
       label="订购人姓名"
       placeholder="订购人的姓名"
     />
     <van-field
+      label-class="filed-label"
       model:value="{{ buyPhone }}"
       label="订购人手机号"
+      type="number"
+      maxlength="11"
       placeholder="订购人的手机号"
     />
     <van-cell title="期望送达日期" is-link value="{{deliveryDate}}" bind:click="onShowDateTimerPopUp"/>
