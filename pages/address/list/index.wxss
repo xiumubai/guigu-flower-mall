@@ -81,6 +81,7 @@
 
 .info {
   margin-right: 16px;
+  flex: 1;
 }
 
 .footer {
