@@ -6,8 +6,9 @@
   </view>
    <view class="wrap">
     <view class="user-container section">
-      <image src="/static/images/dazuo.jpeg"></image>
-      <text class="ellipsis">一个没有感情的ATM鸡,哈哈哈</text>
+      <image src="{{info.headimgurl || defaultImg}}"></image>
+      <text class="ellipsis" wx:if="{{info.nickname}}">{{info.nickname}}</text>
+      <text class="ellipsis" wx:else bindtap="gotoLogin">请登陆</text>
     </view>
     <view class="order section">
       <view class="order-title-wrap">

@@ -1,23 +1,14 @@
 // pages/info/info.js
-Component({
+Page({
   /**
    * 页面的初始数据
    */
   data: {
     systemInfo: {
       statusBarHeight: 0,
-      test: 123,
     },
-  },
-
-  pageLifetimes: {
-    show() {
-      if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 3,
-        });
-      }
-    },
+    info: {},
+    defaultImg: 'https://img02.hua.com/wxmp/hua/def_user_header.png',
   },
 
   /**
@@ -37,15 +28,29 @@ Component({
     });
   },
 
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 3,
+      });
+    }
+    console.log(1);
+    this.setData({ info: wx.getStorageSync('info') });
+  },
+
+  /**
+   * 跳转登陆
+   */
+  gotoLogin() {
+    wx.navigateTo({
+      url: '/pages/login/index',
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
 
   /**
    * 生命周期函数--监听页面隐藏

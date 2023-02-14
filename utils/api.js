@@ -11,6 +11,16 @@ export const login = (code) => {
 };
 
 /**
+ * 登陆
+ */
+export const getUserInfo = () => {
+  return request({
+    url: `/mall-api/weixin/getuserInfo`,
+    method: 'GET',
+  });
+};
+
+/**
  * 获取轮播图
  */
 

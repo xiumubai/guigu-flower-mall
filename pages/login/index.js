@@ -1,5 +1,5 @@
 // pages/login/index.js
-import { login } from '../../utils/api';
+import { login, getUserInfo } from '../../utils/api';
 Page({
   data: {
     userInfo: {},
@@ -8,18 +8,26 @@ Page({
   },
   onLoad() {},
   getUserProfile(e) {
+    const that = this;
     wx.login({
       success: (res) => {
-        console.log(res.code);
         const { code } = res;
         login(code).then((res) => {
-          wx.showToast({
-            title: '登陆成功',
-          });
           wx.setStorageSync('token', res.data.token);
-          wx.switchTab({ url: '/pages/login/index' });
+          that.getUseMessage();
         });
       },
+    });
+  },
+  getUseMessage() {
+    getUserInfo().then((res) => {
+      wx.showToast({
+        title: '登陆成功',
+        success() {
+          wx.setStorageSync('info', res.data);
+          wx.navigateBack();
+        },
+      });
     });
   },
 });
