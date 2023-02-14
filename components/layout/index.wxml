@@ -1,0 +1,4 @@
+<!--components/layout/index.wxml-->
+<view class="layout" style="padding-bottom: {{bottom}}px">
+  <slot></slot>
+</view>

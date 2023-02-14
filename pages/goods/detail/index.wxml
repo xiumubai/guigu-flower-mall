@@ -33,8 +33,8 @@
         
       </view>
       <view class="flex buy-buttons">
-        <view class="bar-separately" bindtap="onSHowSheet">加入购物车</view>
-        <view class="bar-buy" bindta="handeGotoBuy">立即购买</view>
+        <view class="bar-separately" bindtap="handleAddcart">加入购物车</view>
+        <view class="bar-buy" bindtap="handeGotoBuy">立即购买</view>
       </view>
     </view>
   </view>
@@ -55,15 +55,26 @@
               <view class="symbol">¥</view>
               <view class="num">{{goods.price}}</view>
             </view>
-            <view class="buy-btn">
+            <!-- 立即购买的时候不显示数量添加 -->
+            <view class="buy-btn" wx:if="{{flag}}">
               <van-stepper value="{{ count }}" bind:change="onChangeGoodsCount" />
             </view>
           </view>
         </view>
       </view>
 
+      <view class="time-wraper">
+        <view class="title">祝福语</view>
+        <textarea
+          value="{{blessing}}"
+          bindinput="onTextAreaChange"
+          class="form-textarea"
+          placeholder="必填，写上您的祝福语，给心爱的他（她）送上你的祝福（请勿填写特殊符号或表情符号）" 
+          name="textarea"/>
+      </view>
+
       <view class="sheet-footer-btn">
-        <van-button block type="primary" round bindtap="handleAddCart">确定</van-button>
+        <van-button block type="primary" round bindtap="handleSubmit">确定</van-button>
       </view>
     </view>
   </van-action-sheet>

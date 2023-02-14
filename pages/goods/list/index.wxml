@@ -1,12 +1,24 @@
 <!--pages/goods/list/index.wxml-->
 
 <view class="container">
-  <filter
-    bind:showFilterPopup="showFilterPopup"
-  >
-  </filter>
-  <view class="goods-list">
+  <!-- <filter></filter> -->
+  <view class="goods-list" wx:if="{{list.length > 0}}">
     <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
+    <!-- 上拉加载更多 -->
+    <load-more 
+      list-is-empty="{{!list.length}}" 
+      status="{{loadStatus}}" 
+    />
   </view>
+
+  <van-empty wx:else description="该分类下暂无商品，去看看其他的商品吧～">
+    <van-button 
+      round 
+      type="danger" 
+      class="bottom-button" 
+      bindtap="gotoBack">
+      查看其他商品
+    </van-button>
+  </van-empty>
 
 </view>

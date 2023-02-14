@@ -1,0 +1,4 @@
+<!--pages/order/result/index.wxml-->
+<van-empty description="支付成功啦，去看看其他的商品吧～">
+  <van-button round type="danger" class="bottom-button" bindtap="gotoHome">返回首页</van-button>
+</van-empty>

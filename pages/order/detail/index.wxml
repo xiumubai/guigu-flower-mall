@@ -1,59 +1,80 @@
 <!--pages/order/index.wxml-->
 <view class="container order">
   <view class="address-card">
-    <view class="t-class t-cell t-hover t-middle">
+    <!-- 用户没有默认地址 -->
+    <navigator 
+      wx:if="{{!hasAddress}}" 
+      url="/pages/address/list/index?isBack=1" 
+      open-type="navigate">
+      <view class="t-class t-cell t-hover t-middle">
       <van-icon size="22px" name="add" />
-      <view class="t-cell__title-text">添加收货地址</view>
+      <view class="t-cell__title-text">添加收货人地址</view>
     </view>
-    <view class="order-address flex">
+    </navigator>
+    <!-- 用户有默认地址，展示默认地址 -->
+    <navigator 
+      wx:else 
+      url="/pages/address/list/index?isBack=1"
+      open-type="navigate">
+      <view class="order-address flex">
       <view class="address-content">
-        <view class="title">甘肃省 甘南藏族自治州 碌曲县</view>
-        <view class="detail">松日鼎盛大厦0层0号</view>
+        <view class="title">{{address.fullAddress}}</view>
+        <view class="detail">{{address.address}}</view>
         <view class="info flex">
-          <text>测试</text>
-          <text>130839991443</text>
+          <text>{{address.name}}</text>
+          <text>{{address.phone}}</text>
         </view>
       </view>
       <van-icon color="#BBBBBB" name="arrow" size="22px"/>
     </view>
-    
+    </navigator>
     <view class="top-line"></view>
   </view>
-  <view class="goods-wraper">
-    <view class="time-wraper flex">
-      <view class="title">配送时间</view>
-      <view class="time">请选择配送时间</view>
-      <van-icon color="#BBBBBB" name="arrow" size="14px"/>
-    </view>
-    <view class="time-wraper">
-      <view class="title">贺卡备注</view>
-      <textarea 
+
+  <van-cell-group>
+    <van-field
+      label-class="filed-label"
+      model:value="{{ buyName }}"
+      label="订购人姓名"
+      placeholder="订购人的姓名"
+    />
+    <van-field
+      label-class="filed-label"
+      model:value="{{ buyPhone }}"
+      label="订购人手机号"
+      type="number"
+      maxlength="11"
+      placeholder="订购人的手机号"
+    />
+    <van-cell title="期望送达日期" is-link value="{{deliveryDate}}" bind:click="onShowDateTimerPopUp"/>
+
+    <van-cell title="订单备注" border="{{false}}" use-label-slot>
+      <textarea
+        slot="label"
+        model:value="{{remarks}}"
         class="form-textarea"
-        placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）" name="textarea"/>
-    </view>
+        placeholder="写上您的祝福语，“署名处”为选填，如未填写，虚线框区域不会打印在贺卡上（请勿填写特殊符号或表情符号）"
+        name="textarea"/>
+    </van-cell>
+    
+  </van-cell-group>
+  <view class="goods-wraper">
     <view class="goods-list">
-      <view class="goods-item flex">
+      <view class="goods-item flex" wx:for="{{list}}" wx:key="index">
         <view class="img">
           <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
         </view>
         <view class="content">
-          <view class="goods-title">[鲜花]韩式花篮/阳光使者</view>
-          <view class="goods-price">¥99.0</view>
+          <view class="goods-title">{{item.name}}</view>
+          <view class="goods-price">{{item.price}}</view>
         </view>
         <view class="num">
-          <van-stepper value="{{ price }}" bind:change="onChangePrice" />
-        </view>
-      </view>
-       <view class="goods-item flex">
-        <view class="img">
-          <image src="https://img01.hua.com/uploadpic/newpic/9012519.jpg_220x240.jpg" />
-        </view>
-        <view class="content">
-          <view class="goods-title">[鲜花]韩式花篮/阳光使者</view>
-          <view class="goods-price">¥99.0</view>
-        </view>
-        <view class="num">
-          <van-stepper value="{{ price }}" bind:change="onChangePrice" />
+          <van-stepper value="{{ item.count }}" 
+            data-goodsid="{{item.goodsId}}"
+            bind:change="onChangeCount"
+            bind:plus="onPlusCount"
+            disable-input
+            bind:minus="onMinusCount" />
         </view>
       </view>
     </view>
@@ -65,8 +86,25 @@
   </view>
   <view class="footer flex">
     <view class="left">
-      ¥499
+      ¥{{totoalPrice}}
     </view>
-    <viwe class="right">去结算</viwe>
+    <viwe class="right" bindtap="handleGoToPay">去结算</viwe>
   </view>
+
+  <van-popup
+    show="{{ show }}"
+    round
+    position="bottom"
+    custom-style="height: 50%"
+    bind:close="onClose"
+  >
+    <van-datetime-picker
+      type="date"
+      min-date="{{minDate}}"
+      model:value="{{ currentDate }}"
+      bind:confirm="onConfirmTimerPicker"
+      bind:cancel="onCancelTimePicker"
+    />
+  </van-popup>
+
 </view>

@@ -107,6 +107,10 @@
   flex: 1;
 }
 
+.filed-label {
+  color: #323233 !important;
+}
+
 .time {
   margin-right: 4px;
 }
@@ -118,7 +122,7 @@
   font-size: 13px;
   margin-top: 12px;
   width: 94%;
-  height: 84px;
+  height: 80px;
 }
 
 .goods-list {

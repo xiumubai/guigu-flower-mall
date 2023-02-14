@@ -1,4 +1,5 @@
 <!--pages/login/index.wxml-->
-<view class="container">
-  <view bindtap="getUserProfile"> 获取头像昵称 </view>
-</view>
+
+<van-empty description="请点击下方的按钮，授权登陆您的账户～">
+  <van-button round type="danger" class="bottom-button" bindtap="getUserProfile">点击授权登陆</van-button>
+</van-empty>

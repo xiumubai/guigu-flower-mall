@@ -18,12 +18,17 @@
 			{{category[activeKey].name}}
 		</view>
 		<view class="goods-category-normal-item-container">
-			<view class="category-card-item" wx:for="{{category[activeKey].children}}" wx:key="index">
-				<view class="img-bg">
-					<image src="{{item.imageUrl || defaultImg}}" class="img"/>
+			<view
+					class="category-card-item" 
+					wx:for="{{category[activeKey].children}}" 
+					wx:key="index">
+					<navigator url="/pages/goods/list/index?category2Id={{item.id}}">
+						<view class="img-bg">
+							<image src="{{item.imageUrl || defaultImg}}" class="img"/>
+						</view>
+						<text class="item-title">{{item.name}}</text>
+					</navigator>
 				</view>
-				<text class="item-title">{{item.name}}</text>
-			</view>
 		</view>
 	</view>
 </view>

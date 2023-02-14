@@ -5,7 +5,7 @@
     wx:for="{{category}}"
     wx:key="index"
   >
-    <navigator class="procate-nav" url="/">
+    <navigator class="procate-nav" url="/pages/goods/list/index?category1Id={{item.id}}">
       <image class="procate-img" src="{{item.imageUrl}}" />
       <text>{{item.name}}</text>
     </navigator>

@@ -11,6 +11,16 @@ export const login = (code) => {
 };
 
 /**
+ * 登陆
+ */
+export const getUserInfo = () => {
+  return request({
+    url: `/mall-api/weixin/getuserInfo`,
+    method: 'GET',
+  });
+};
+
+/**
  * 获取轮播图
  */
 
@@ -83,9 +93,81 @@ export const findGoodsDetail = (goodsId) => {
 };
 
 /**
+ * 立即购买
+ */
+export const buy = (params) => {
+  return request({
+    url: `/mall-api/order/buy/${params.goodsId}`,
+    method: 'GET',
+    data: params,
+  });
+};
+
+/**
+ * 确认下单
+ */
+export const trade = () => {
+  return request({
+    url: `/mall-api/order/trade`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 提交订单
+ */
+export const submitOrder = (params) => {
+  return request({
+    url: `/mall-api/order/submitOrder`,
+    method: 'POST',
+    data: params,
+  });
+};
+
+/**
+ * 微信下单
+ */
+export const createJsapi = (orderNo) => {
+  return request({
+    url: `/mall-api/webChat/createJsapi/${orderNo}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 查询支付结果
+ */
+export const queryPayStatus = (orderNo) => {
+  return request({
+    url: `/mall-api/webChat/queryPayStatus/${orderNo}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 订单列表
+ */
+export const orderList = (params) => {
+  console.log(params);
+  return request({
+    url: `/mall-api/order/order/${params.page}/${params.limit}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 订单详情
+ */
+export const orderDetail = (orderNo) => {
+  return request({
+    url: `/mall-api/order/order/${orderNo}`,
+    method: 'GET',
+  });
+};
+
+/**
  * 购物车列表
  */
-
 export const findCartList = () => {
   return request({
     url: `/mall-api/cart/getCartList`,
@@ -100,6 +182,7 @@ export const addToCart = (params) => {
   return request({
     url: `/mall-api/cart/addToCart/${params.goodsId}/${params.count}`,
     method: 'GET',
+    data: params,
   });
 };
 
@@ -136,6 +219,15 @@ export const checkAllCart = (isChecked) => {
 };
 
 /**
+ * 获取地址省市区节点
+ */
+export const findRegionList = (parentCode) => {
+  return request({
+    url: `/mall-api/region/findRegionList/${parentCode}`,
+    method: 'GET',
+  });
+};
+/**
  * 添加地址
  */
 export const userAddressSave = (params) => {
@@ -168,11 +260,41 @@ export const userAddressDelete = (id) => {
 };
 
 /**
- * 删除地址
+ * 地址列表
  */
-export const findUserAddress = (id) => {
+export const findUserAddress = () => {
   return request({
-    url: `/mall-api/userAddress/findUserAddress/`,
+    url: `/mall-api/userAddress/findUserAddress`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 根据地址id获取单个地址详情
+ */
+export const findUserAddressById = (id) => {
+  return request({
+    url: `/mall-api/userAddress/${id}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 选择收货地址
+ */
+export const selectAddressById = (id) => {
+  return request({
+    url: `/mall-api/userAddress/selectAddress/${id}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 获取收货地址信息
+ */
+export const getOrderAddress = () => {
+  return request({
+    url: `/mall-api/userAddress/getOrderAddress`,
     method: 'GET',
   });
 };

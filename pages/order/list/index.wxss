@@ -1,1 +1,104 @@
 /* pages/order/list/index.wxss */
+.order-container {
+  height: 100%;
+}
+.order-card {
+  margin: 24rpx 0;
+  padding: 24rpx 32rpx 24rpx;
+  background-color: white;
+  border-radius: 8rpx;
+}
+
+.flex {
+  display: flex;
+}
+
+.order-card-header {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.orderno {
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  line-height: 40rpx;
+}
+
+.orderno .no {
+  margin-left: 6px;
+}
+.order-status {
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #fa4126;
+}
+.goods-item {
+  padding: 16rpx 0;
+}
+
+.goods-item .left {
+  width: 176rpx;
+  height: 176rpx;
+  background: #333333;
+}
+
+.goods-item .mid {
+  flex: 1;
+  margin: 0 12px;
+}
+
+.mid .goods-name {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 40rpx;
+  font-weight: 400;
+}
+
+.mid .goods-blessing {
+  font-size: 24rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #999999;
+  margin: 8rpx 0;
+}
+
+.right .goods-price {
+  white-space: nowrap;
+  font-weight: bold;
+  order: 1;
+  color: #fa4126;
+  font-size: 36rpx;
+  margin: 0;
+  line-height: 48rpx;
+}
+.right .goods-count {
+  white-space: nowrap;
+  order: 4;
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin: 20rpx 0 0 auto;
+}
+
+.order-card-footer .total-amount {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.order-card-footer .text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+  margin-right: 4px;
+}
+
+.order-card-footer .price {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  color: #fa4126;
+  font-weight: bold;
+}

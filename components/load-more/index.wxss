@@ -1,0 +1,4 @@
+.load-more {
+  text-align: center;
+  padding: 8px 16px;
+}

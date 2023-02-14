@@ -1,66 +1,80 @@
 // pages/address/list/index.js
+import {
+  findUserAddress,
+  userAddressDelete,
+  selectAddressById,
+} from '../../../utils/api';
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    isBack: 1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+    this.setData({ isBack: options.isBack });
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getAddreassList();
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 获取地址
    */
-  onHide() {
-
+  async getAddreassList() {
+    const res = await findUserAddress();
+    this.setData({ list: res.data });
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * 事件：选择地址
    */
-  onUnload() {
-
+  async handleSelectAddress(event) {
+    if (this.data.isBack) {
+      const { id } = event.currentTarget.dataset;
+      const res = await selectAddressById(id);
+      if (res.code === 200) {
+        wx.navigateBack();
+      }
+    }
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 编辑地址
    */
-  onPullDownRefresh() {
-
+  handleEditAddress(event) {
+    const { id } = event.target.dataset;
+    wx.navigateTo({
+      url: `/pages/address/add/index?id=${id}`,
+    });
   },
-
   /**
-   * 页面上拉触底事件的处理函数
+   * 删除地址
    */
-  onReachBottom() {
-
+  handleDelAddress(event) {
+    const { id } = event.target.dataset;
+    const that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认删除该用户地址吗？',
+      async success(res) {
+        if (res.confirm) {
+          const res = await userAddressDelete(id);
+          if (res.code === 200) {
+            wx.showToast({ title: '删除成功' });
+            that.getAddreassList();
+          }
+        }
+      },
+    });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

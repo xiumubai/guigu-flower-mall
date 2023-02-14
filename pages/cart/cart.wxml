@@ -1,6 +1,10 @@
 <!--pages/ceremony/ceremony.wxml-->
 <view class="container goods-wrap">
-  <view class="cart-wrap">
+  <view 
+    class="cart-wrap" 
+    wx:if="{{list.length > 0}}"
+    style="padding-bottom: {{bottom + 48}}px"
+  >
     <view class="goods-item" wx:for="{{list}}" wx:key="index">
       <view class="left">
         <van-checkbox
@@ -38,7 +42,8 @@
       </view>
     </view>
   </view>
-  <view class="submit-footer flex">
+  <van-empty wx:else description="还没有添加商品，快去添加吧～" />
+  <view class="submit-footer flex" style="bottom: {{bottom}}px">
     <view class="left">
       <van-checkbox 
         checked-color="#FA4126" 
@@ -56,7 +61,8 @@
         <van-button 
           size="small" 
           color="linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36))" 
-          round>
+          round
+          bindtap="handleGotoBy">
           去结算({{totalCount}})
         </van-button>
       </view>
