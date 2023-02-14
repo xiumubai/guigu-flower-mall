@@ -14,7 +14,7 @@ Page({
     totalCount: 0,
     totalPrice: 0,
     isCheckedAll: false,
-    bottom: 0,
+    bottom: app.globalData.tabbarHeight,
   },
 
   /**
@@ -27,7 +27,7 @@ Page({
       this.getTabBar().setData({
         selected: 2,
       });
-      this.setData({ bottom: this.getTabBar().data.tabbarHeight });
+      // this.setData({ bottom: this.getTabBar().data.tabbarHeight });
     }
     this.getCartList();
   },

@@ -12,10 +12,23 @@ App({
     //   // 设置购物车徽标数量
     //   this.globalData.cartCount = s;
     // });
+    // 获取tabbar+安全区域的高度
+    const res = wx.getSystemInfoSync();
+    const {
+      screenHeight,
+      safeArea: { bottom },
+    } = res;
+    console.log('resHeight', res);
+    if (screenHeight && bottom) {
+      let safeBottom = screenHeight - bottom;
+      console.log(safeBottom);
+      this.globalData.tabbarHeight = 48 + safeBottom;
+    }
   },
   globalData: {
     // 购物车数量
     cartCount: 0,
+    tabbarHeight: 0,
   },
   watch: function (method) {
     var obj = this.globalData;

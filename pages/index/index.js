@@ -5,6 +5,7 @@ import {
   findListGoods,
   findRecommendGoods,
 } from '../../utils/api';
+const app = getApp();
 Page({
   data: {
     bannerList: backgroundList,
@@ -12,7 +13,7 @@ Page({
     banner: banner,
     loveList: [],
     recommendList: [],
-    bottom: 0,
+    bottom: app.globalData.tabbarHeight,
   },
 
   /**
@@ -82,7 +83,7 @@ Page({
       this.getTabBar().setData({
         selected: 0,
       });
-      this.setData({ bottom: this.getTabBar().data.tabbarHeight });
+      // this.setData({ bottom: this.getTabBar().data.tabbarHeight });
     }
   },
 

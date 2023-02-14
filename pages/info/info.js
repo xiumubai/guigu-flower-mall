@@ -1,11 +1,12 @@
 // pages/info/info.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     info: {},
-    bottom: 0,
+    bottom: app.globalData.tabbarHeight,
     defaultImg: 'https://img02.hua.com/wxmp/hua/def_user_header.png',
   },
 
@@ -19,8 +20,8 @@ Page({
       this.getTabBar().setData({
         selected: 3,
       });
-      this.setData({ bottom: this.getTabBar().data.tabbarHeight });
-      console.log('bottom', this.data.bottom);
+      // this.setData({ bottom: this.getTabBar().data.tabbarHeight });
+      // console.log('bottom', this.data.bottom);
     }
     this.setData({ info: wx.getStorageSync('info') });
   },
