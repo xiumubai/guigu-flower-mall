@@ -1,0 +1,21 @@
+<view 
+	class="load-more"
+	style="{{listIsEmpty && (status === 0 || status === 2) ? 'display: none' : '' }}" 
+>
+	<!-- 加载中 -->
+	<van-loading
+		wx:if="{{status === 1}}"
+		size="{{size}}"
+	>
+		{{loadingText}}
+	</van-loading>
+
+	<!-- 已全部加载 -->
+	<van-divider
+		wx:if="{{status === 2}}"
+		contentPosition="center"
+		customStyle="color: #969799; border-color: #ebedf0; font-size: 14px;"
+		>
+		{{noMoreText}}
+	</van-divider>
+</view>

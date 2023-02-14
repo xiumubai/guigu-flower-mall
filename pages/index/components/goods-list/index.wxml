@@ -6,6 +6,11 @@
     <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
   </view>
   <view class="product-more">
-    <navigator class="product-more-btn">查看更多</navigator>
+    <navigator 
+      class="product-more-btn" 
+      url="/pages/goods/list/index"
+      >
+      查看更多
+    </navigator>
   </view>
 </view>

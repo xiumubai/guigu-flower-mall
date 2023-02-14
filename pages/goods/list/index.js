@@ -11,80 +11,80 @@ Page({
    * 页面的初始数据
    */
   data: {
-    layout: 0,
-    sorts: '',
-    overall: 1,
-    show: false,
     page: 1,
     limit: 10,
     list: [],
-  },
-
-  showFilterPopup() {
-    this.setData({
-      show: true,
-    });
-  },
-
-  showFilterPopupClose() {
-    this.setData({
-      show: false,
-    });
+    options: {},
+    loadStatus: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getGoodsList();
+    this.setData({ options });
+    this.loadGoodsList(true);
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+    // 还有数据，继续请求接口
+    console.log(123, this.data);
+    if (this.data.loadStatus === 0) {
+      this.loadGoodsList();
+    }
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+    // this.loadGoodsList();
   },
 
   /**
    * 商品列表
    */
-  async getGoodsList() {
+  async loadGoodsList(fresh = false) {
+    // wx.stopPullDownRefresh();
+    this.setData({ loadStatus: 1 });
+    let page = fresh ? 1 : this.data.page + 1;
+    // 组装查询参数
     const params = {
-      page: this.data.page,
+      page,
       limit: this.data.limit,
+      ...this.data.options,
     };
-    const res = await findGoodsList(params);
-    this.setData({
-      list: res.data.records,
-    });
+    try {
+      // loadstatus说明： 0-加载完毕，隐藏加载状态 1-正在加载 2-全部加载 3-加载失败
+      const res = await findGoodsList(params);
+      const data = res.data.records;
+      if (data.length > 0) {
+        this.setData({
+          list: fresh ? data : this.data.list.concat(data),
+          loadStatus: data.length === this.data.limit ? 0 : 2,
+          page,
+        });
+      } else {
+        // 数据全部加载完毕
+        this.setData({
+          loadStatus: 2,
+        });
+      }
+    } catch {
+      // 错误请求
+      this.setData({
+        loadStatus: 3,
+      });
+    }
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 返回
    */
-  onReady() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  gotoBack() {
+    wx.navigateBack();
+  },
 });
