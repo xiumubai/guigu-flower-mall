@@ -1,10 +1,5 @@
 // pages/goods/list/index.js
 import { findGoodsList } from '../../../utils/api';
-const initFilters = {
-  overall: 1,
-  sorts: '',
-  layout: 0,
-};
 
 Page({
   /**

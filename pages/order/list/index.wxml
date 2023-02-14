@@ -1,2 +1,36 @@
 <!--pages/order/list/index.wxml-->
-<text>pages/order/list/index.wxml</text>
+<view class="container order-container">
+  <block wx:if="{{list.length > 0}}">
+    <view class="order-card" wx:for="{{list}}" wx:key="index">
+      <view class="order-card-header flex">
+        <view class="orderno">订单号<text class="no">{{item.orderNo}}</text></view>
+        <view class="order-status">{{item.orderStatus ? '已支付' : '未支付'}}</view>
+      </view>
+      <view class="goods-item flex" wx:for="{{item.orderDetailList}}" wx:key="idx" wx:for-item="good">
+        <view class="left">
+          <image src="{{good.imageUrl}}" mode="widthFix" class="img"/>
+        </view>
+        <view class="mid">
+          <view class="goods-name">{{good.name}}</view>
+          <view class="goods-blessing">{{good.blessing}}</view>
+        </view>
+        <view class="right">
+          <view class="goods-price">¥{{good.price}}</view>
+          <view class="goods-count">x{{good.count}}</view>
+        </view>
+      </view>
+      <view class="order-card-footer">
+        <view class="total-amount flex">
+          <text class="text">实付</text>
+          <text class="price">¥{{item.totalAmount}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 上拉加载更多 -->
+    <load-more 
+      list-is-empty="{{!list.length}}" 
+      status="{{loadStatus}}" 
+    />
+  </block>
+  <van-empty wx:else description="还没有购买商品，快去购买吧～" />
+</view>

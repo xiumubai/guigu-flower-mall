@@ -145,6 +145,27 @@ export const queryPayStatus = (orderNo) => {
 };
 
 /**
+ * 订单列表
+ */
+export const orderList = (params) => {
+  console.log(params);
+  return request({
+    url: `/mall-api/order/order/${params.page}/${params.limit}`,
+    method: 'GET',
+  });
+};
+
+/**
+ * 订单详情
+ */
+export const orderDetail = (orderNo) => {
+  return request({
+    url: `/mall-api/order/order/${orderNo}`,
+    method: 'GET',
+  });
+};
+
+/**
  * 购物车列表
  */
 export const findCartList = () => {

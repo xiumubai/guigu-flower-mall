@@ -16,7 +16,7 @@
         <text class="more">查看更多></text>
       </view>
       <view class="order-content-wrap">
-        <view class="order-content-item">
+        <view class="order-content-item" bindtap="gotoOrderList">
           <view class="iconfont icon-dingdan"></view>
           <text>商品订单</text>
         </view>

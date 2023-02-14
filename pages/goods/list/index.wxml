@@ -1,7 +1,7 @@
 <!--pages/goods/list/index.wxml-->
 
 <view class="container">
-  <filter></filter>
+  <!-- <filter></filter> -->
   <view class="goods-list" wx:if="{{list.length > 0}}">
     <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
     <!-- 上拉加载更多 -->
