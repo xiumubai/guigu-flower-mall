@@ -42,23 +42,23 @@ npm install
 <table>
   <tr>
     <td><img src="./docs/images/home.pic.jpg"></td>
-    <td><img src="https://files.mdnice.com/user/15628/f88e421c-0f9d-4683-8156-fc08d38d1270.png"></td>
+    <td><img src="./docs/images/info.pic.jpg"></td>
   </tr>
   <tr>
-    <td><img src="https://files.mdnice.com/user/15628/cef3ac3c-5977-42f5-9212-91a98b85795a.jpg"></td>
-    <td><img src="https://files.mdnice.com/user/15628/5c2a0300-9df4-4611-8586-df5bc635641c.jpg"></td>
+    <td><img src="./docs/images/goods-list.pic.jpg"></td>
+    <td><img src="./docs/images/goods-detail.pic.jpg"></td>
   </tr>
   <tr>
-    <td><img src="https://files.mdnice.com/user/15628/6983af3d-224f-41a5-b702-4f538f9b2540.jpg"></td>
-    <td><img src="https://files.mdnice.com/user/15628/9a44d164-2764-47d0-be83-8e349cf8d65b.jpg"></td>
+    <td><img src="./docs/images/order-detail.pic.jpg"></td>
+    <td><img src="./docs/images/order-list.pic.jpg"></td>
   </tr>
   <tr>
-    <td><img src="https://files.mdnice.com/user/15628/dd9aae6d-bbf2-4693-9080-c44d781775a1.jpg"></td>
-    <td><img src="https://files.mdnice.com/user/15628/8ceaba76-9c58-4dd1-9be1-568fdaefd6d2.jpg"></td>
+    <td><img src="./docs/images/category.pic.jpg"></td>
+    <td><img src="./docs/images/cart-list.pic.jpg"></td>
   </tr>
   <tr>
-    <td><img src="https://files.mdnice.com/user/15628/7d4136ff-9870-4d3e-ab64-0f83f775e1a8.jpg"></td>
-    <td><img src="https://files.mdnice.com/user/15628/9efc53af-1d60-4e04-987c-054e9cb9a369.jpg"></td>
+    <td><img src="./docs/images/address-list.pic.jpg"></td>
+    <td><img src="./docs/images/address-add.pic.jpg"></td>
   </tr>
 </table>
 
