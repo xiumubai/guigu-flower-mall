@@ -1,6 +1,6 @@
 // pages/goods/list/index.js
 import { findGoodsList } from '../../../utils/api';
-
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -11,6 +11,8 @@ Page({
     list: [],
     options: {},
     loadStatus: 0,
+    contentHeight: app.globalData.contentHeight,
+    safeAreaHeight: app.globalData.safeAreaHeight,
   },
 
   /**

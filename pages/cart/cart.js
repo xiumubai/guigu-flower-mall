@@ -99,7 +99,7 @@ Page({
   computedTotalCount() {
     let s = 0;
     this.data.list.map((item) => {
-      return (s += item.count);
+      return item.isChecked && (s += item.count);
     });
     this.setData({ totalCount: s });
     // 设置购物车徽标数量

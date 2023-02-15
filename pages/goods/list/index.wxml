@@ -1,6 +1,6 @@
 <!--pages/goods/list/index.wxml-->
 
-<view class="container">
+<view class="container" style="min-height: {{contentHeight}}px; padding-bottom: {{safeAreaHeight}}px">
   <!-- <filter></filter> -->
   <view class="goods-list" wx:if="{{list.length > 0}}">
     <goods-card wx:for="{{list}}" wx:key="index" item="{{item}}"></goods-card>
