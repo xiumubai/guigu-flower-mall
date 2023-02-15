@@ -29,7 +29,7 @@ npm install
 
 步骤三：替换 appid
 
-找到`project.config.json`文件的`appid`,替换为自己小程序
+找到`project.config.json`文件的`appid`,替换为自己小程序的`appid`即可
 
 > 备注：由于本项目使用的小程序是企业申请的，设计支付功能，所以如果想体验支付流程的可以自行申请企业小程序。
 
@@ -40,38 +40,26 @@ npm install
 ## 🗃️ 效果图
 
 <table>
-<tr>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433265695-84018d83-71a7-4755-894e-6bc8d02d8b98.png#averageHue=%23e5ebe9&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=u2b272d85&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=235732&status=done&style=none&taskId=u3e1db878-9211-405d-b056-11f1ab4aa92&title=&width=585">
-</td>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433294216-282e11d5-2242-415f-88b4-3055be9d9ad6.png#averageHue=%23eedfde&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=uc002f7e9&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=120569&status=done&style=none&taskId=ue4df6a0d-282d-46e5-8e7f-ad737079e7c&title=&width=585">
-</td>
-</tr>
-<tr>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433302120-5822f245-727f-45a0-bca0-91a78e127db5.png#averageHue=%23d1cfc9&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=ud2205ed4&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=186619&status=done&style=none&taskId=ub915cab1-ceab-4de1-a9c1-492507915aa&title=&width=585">
-</td>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433318317-c714ed94-e931-4e94-b694-62914d3c95d2.png#averageHue=%23d6cfc7&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=ufd3114b9&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=191958&status=done&style=none&taskId=u28609e81-eda5-47c6-8bcb-22341b1348b&title=&width=585">
-</td>
-</tr>
-<tr>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433323882-94143835-fedc-42b0-a4be-db0acf8b700c.png#averageHue=%23eed9c4&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=udf50ec33&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=178492&status=done&style=none&taskId=u926b9519-f89f-44ff-ae99-71b209de824&title=&width=585">
-</td>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433329986-e8aa0d1f-4e1d-4055-ad17-b3052d6689f9.png#averageHue=%23d2c0a9&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=u699930ec&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=161109&status=done&style=none&taskId=u7b5adff6-2de6-4955-8d31-c9a61b1d10a&title=&width=585">
-</td>
-</tr>
-<tr>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433336006-0e8e1147-e0dd-4b24-b0b9-0ad973d3541c.png#averageHue=%236ac47b&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=uc3b1ffc3&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=108839&status=done&style=none&taskId=ude803048-d5c8-4529-8490-31146a18c7b&title=&width=585">
-</td>
-<td>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/338969/1676433341325-09e11c56-c1a7-4b98-a45d-ea824a949f80.png#averageHue=%23c1beb0&clientId=uf4c2fb01-0be0-4&from=paste&height=1266&id=u7c975d8e&name=image.png&originHeight=2532&originWidth=1170&originalType=binary&ratio=2&rotation=0&showTitle=false&size=194955&status=done&style=none&taskId=u2cf900f1-842b-4d9d-b481-c8851c7c399&title=&width=585">
-</td>
-</tr>
+  <tr>
+    <td><img src="https://files.mdnice.com/user/15628/ad059927-79c2-4658-8906-008874774185.jpg"></td>
+    <td><img src="https://files.mdnice.com/user/15628/f88e421c-0f9d-4683-8156-fc08d38d1270.png"></td>
+  </tr>
+  <tr>
+    <td><img src="https://files.mdnice.com/user/15628/cef3ac3c-5977-42f5-9212-91a98b85795a.jpg"></td>
+    <td><img src="https://files.mdnice.com/user/15628/5c2a0300-9df4-4611-8586-df5bc635641c.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://files.mdnice.com/user/15628/6983af3d-224f-41a5-b702-4f538f9b2540.jpg"></td>
+    <td><img src="https://files.mdnice.com/user/15628/9a44d164-2764-47d0-be83-8e349cf8d65b.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://files.mdnice.com/user/15628/dd9aae6d-bbf2-4693-9080-c44d781775a1.jpg"></td>
+    <td><img src="https://files.mdnice.com/user/15628/8ceaba76-9c58-4dd1-9be1-568fdaefd6d2.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://files.mdnice.com/user/15628/7d4136ff-9870-4d3e-ab64-0f83f775e1a8.jpg"></td>
+    <td><img src="https://files.mdnice.com/user/15628/9efc53af-1d60-4e04-987c-054e9cb9a369.jpg"></td>
+  </tr>
 </table>
 
 ## 💚 适合人群
