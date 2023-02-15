@@ -39,6 +39,7 @@ export function formatDate(date, formatstr) {
     .replace(/W/g, arrweek[date.getDay()]);
   return str;
 }
+
 function $addZero(v, size) {
   for (var i = 0, len = size - (v + '').length; i < len; i++) {
     v = '0' + v;

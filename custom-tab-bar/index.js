@@ -1,11 +1,27 @@
-const app = getApp();
-const cartCount = app.globalData.cartCount;
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings';
+import { store } from '../store/index';
+
 Component({
+  behaviors: [storeBindingsBehavior],
+  storeBindings: {
+    store,
+    fields: {
+      count: 'count',
+    },
+    actions: [],
+  },
+  observers: {
+    count: function (val) {
+      console.log('val', val);
+      // 更新购物车的数量
+      this.setData({ cartCount: val });
+    },
+  },
   data: {
     selected: 0,
     color: '#252933',
     selectedColor: '#FF734C',
-    count: cartCount,
+    cartCount: 0,
     list: [
       {
         pagePath: '/pages/index/index',
@@ -24,7 +40,7 @@ Component({
         text: '购物车',
         iconPath: '/static/tabbar/home-icon3.png',
         selectedIconPath: '/static/tabbar/home-icon3-3.png',
-        hasCount: true,
+        info: true,
       },
       {
         pagePath: '/pages/info/info',
@@ -35,17 +51,8 @@ Component({
     ],
   },
 
-  lifetimes: {
-    attached() {
-      let self = this;
-      app.watch(self.watchBack.bind(self));
-    },
-  },
+  lifetimes: {},
   methods: {
-    watchBack(hasToken) {
-      if (!hasToken) return;
-      this.setData({ count: app.globalData.cartCount });
-    },
     switchTab(e) {
       const { path, index } = e.currentTarget.dataset;
       wx.switchTab({ url: path });

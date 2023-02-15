@@ -1,9 +1,8 @@
 <!--pages/ceremony/ceremony.wxml-->
-<view class="container goods-wrap">
+<view class="container" style="min-height: {{contentHeight - 48}}px;padding-bottom: {{bottom + 48}}px">
   <view 
     class="cart-wrap" 
     wx:if="{{list.length > 0}}"
-    style="padding-bottom: {{bottom + 48}}px"
   >
     <view class="goods-item" wx:for="{{list}}" wx:key="index">
       <view class="left">
@@ -63,7 +62,7 @@
           color="linear-gradient(to right, rgb(255, 96, 52), rgb(238, 10, 36))" 
           round
           bindtap="handleGotoBy">
-          去结算({{totalCount}})
+          去结算({{count}})
         </van-button>
       </view>
     </view>

@@ -9,7 +9,7 @@
     bindtap="switchTab">
     <cover-view class="tab-img-wrap">
       <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
-      <cover-view wx-if="{{item.hasCount && count > 0}}"class="tab-badge">{{count}}</cover-view>
+      <cover-view wx-if="{{item.info && cartCount > 0}}"class="tab-badge">{{cartCount}}</cover-view>
     </cover-view>
     <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
   </cover-view>
