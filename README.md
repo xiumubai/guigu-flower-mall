@@ -41,7 +41,7 @@ npm install
 
 <table>
   <tr>
-    <td><img src="https://files.mdnice.com/user/15628/ad059927-79c2-4658-8906-008874774185.jpg"></td>
+    <td><img src="./docs/images/home.pic.jpg"></td>
     <td><img src="https://files.mdnice.com/user/15628/f88e421c-0f9d-4683-8156-fc08d38d1270.png"></td>
   </tr>
   <tr>
