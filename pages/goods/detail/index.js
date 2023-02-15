@@ -64,7 +64,7 @@ Page({
       // 立即购买，祝福语不能为空
       if (blessing) {
         wx.navigateTo({
-          url: `/pages/order/detail/index?goodsId=${this.data.goodsId}&blessing=${blessing}`,
+          url: `/pages/order/pay/index?goodsId=${this.data.goodsId}&blessing=${blessing}`,
         });
       } else {
         wx.showToast({ title: '请填写祝福语', icon: 'error' });

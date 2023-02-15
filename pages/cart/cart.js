@@ -56,7 +56,7 @@ Page({
    * 事件：去结算
    */
   async handleGotoBy() {
-    wx.navigateTo({ url: '/pages/order/detail/index' });
+    wx.navigateTo({ url: '/pages/order/pay/index' });
   },
 
   /**

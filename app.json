@@ -6,12 +6,13 @@
     "pages/info/info",
     "pages/goods/list/index",
     "pages/goods/detail/index",
-    "pages/order/detail/index",
-    "pages/order/list/index",
     "pages/address/add/index",
     "pages/address/list/index",
     "pages/login/index",
-    "pages/order/result/index"
+    "pages/order/pay/index",
+    "pages/order/list/index",
+    "pages/order/result/index",
+    "pages/order/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
