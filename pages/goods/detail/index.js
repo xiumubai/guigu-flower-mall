@@ -1,5 +1,7 @@
 // pages/goods/detail/index.js
 import { findGoodsDetail, addToCart } from '../../../utils/api';
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+import { store } from '../../../store/index';
 Page({
   /**
    * 页面的初始数据
@@ -17,6 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: [],
+      actions: ['getCartListCount'],
+    });
     this.setData({ goodsId: options.goodsId });
     this.getGoodsDetail(options.goodsId);
   },
@@ -44,7 +51,8 @@ Page({
           count,
           blessing,
         });
-
+        // 更新购物车徽标的数量
+        this.getCartListCount();
         if (res.code === 200) {
           wx.showToast({ title: '添加成功' });
           this.setData({

@@ -1,19 +1,19 @@
 // app.js
-// 获取购物车的数量
-import { findCartList } from './utils/api';
-
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+import { store } from './store/index';
 App({
   onLaunch() {
-    // findCartList().then((res) => {
-    //   let s = 0;
-    //   res.data.map((item) => {
-    //     return (s += item.count);
-    //   });
-    //   // 设置购物车徽标数量
-    //   this.globalData.cartCount = s;
-    // });
     // 获取高度
     this.getHeight();
+  },
+  onShow() {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: [],
+      actions: ['getCartListCount'],
+    });
+    // 在页面初始化的时候，更新购物车徽标的数量
+    this.getCartListCount();
   },
   globalData: {
     // 购物车数量
@@ -24,22 +24,6 @@ App({
     safeAreaHeight: 0,
     // 内容区域高度
     contentHeight: 0,
-  },
-  /** 全局监听cartCount的响应式变化 */
-  watch: function (method) {
-    var obj = this.globalData;
-    Object.defineProperty(obj, 'cartCount', {
-      configurable: true,
-      enumerable: true,
-      set: function (value) {
-        this._hasToken = value;
-        method(value);
-      },
-      get: function () {
-        // 调用getApp().globalData.name的时候，这里就会执行。
-        return this._hasToken;
-      },
-    });
   },
   getHeight() {
     const res = wx.getSystemInfoSync();

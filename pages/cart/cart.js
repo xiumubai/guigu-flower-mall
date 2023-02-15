@@ -5,6 +5,10 @@ import {
   addToCart,
   checkAllCart,
 } from '../../utils/api';
+
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+import { store } from '../../store/index';
+import { getCartTotalCount } from '../../store/cart';
 const app = getApp();
 Page({
   data: {
@@ -15,19 +19,35 @@ Page({
     totalPrice: 0,
     isCheckedAll: false,
     bottom: app.globalData.tabbarHeight,
+    contentHeight: app.globalData.contentHeight,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ['count'],
+      actions: ['updateCount'],
+    });
+  },
 
+  /**
+   * 声明周期函数--监听页面卸载
+   */
+  onUnload() {
+    this.storeBindings.destroyStoreBindings();
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
   onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 2,
       });
-      // this.setData({ bottom: this.getTabBar().data.tabbarHeight });
     }
     this.getCartList();
   },
@@ -47,7 +67,7 @@ Page({
     this.setData({
       list: res.data,
     });
-    this.computedTotalCount();
+    this.computedTotalCount(res.data);
     this.computedTotalPrice();
     this.getCheckAllStatus();
   },
@@ -68,10 +88,12 @@ Page({
    * 修改购物车数量
    */
   async onChangeCount(event) {
-    console.log(event.detail);
     const newCount = event.detail;
     const goodsId = event.target.dataset.goodsid;
     const originCount = event.target.dataset.count;
+    // 这里如果直接拿+以后的数量，接口的处理方式是直接在上次的基础累加的，
+    // 所以传给接口的购物车数量的计算方式如下：
+    // 购物车添加的数量=本次的数量-上次的数量
     const count = newCount - originCount;
     const res = await addToCart({
       goodsId,
@@ -96,14 +118,11 @@ Page({
   /**
    * 计算购物车总数量
    */
-  computedTotalCount() {
-    let s = 0;
-    this.data.list.map((item) => {
-      return item.isChecked && (s += item.count);
-    });
-    this.setData({ totalCount: s });
+  computedTotalCount(list) {
+    // 获取购物车选中数量
+    const total = getCartTotalCount(list);
     // 设置购物车徽标数量
-    app.globalData.cartCount = s;
+    this.updateCount(total);
   },
   /**
    * 计算购物车商品总价
