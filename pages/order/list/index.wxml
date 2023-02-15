@@ -1,5 +1,5 @@
 <!--pages/order/list/index.wxml-->
-<view class="container order-container">
+<view class="container order-container" style="min-height: {{contentHeight}}px; padding-bottom: {{safeAreaHeight}}px">
   <block wx:if="{{list.length > 0}}">
     <view class="order-card" wx:for="{{list}}" wx:key="index">
       <view class="order-card-header flex">

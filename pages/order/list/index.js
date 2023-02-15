@@ -1,7 +1,7 @@
 // pages/order/list/index.js
 
 import { orderList } from '../../../utils/api';
-
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -11,6 +11,8 @@ Page({
     page: 1,
     limit: 10,
     loadStatus: 0,
+    contentHeight: app.globalData.contentHeight,
+    safeAreaHeight: app.globalData.safeAreaHeight,
   },
 
   /**
