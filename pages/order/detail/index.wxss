@@ -134,6 +134,8 @@
   font-size: 26rpx;
   line-height: 36rpx;
   color: #666666;
+  flex: 0 0 60px;
+  margin-right: 20px;
 }
 
 .pay-detail {

@@ -40,6 +40,10 @@
       <view class="pay-content color">{{order.totalCount}}</view>
     </view>
     <view class="pay-item flex">
+      <view class="pay-name">备注</view>
+      <view class="pay-content color">哈哈哈哈哈地方很舒服撒返回撒匡扶汉室开发哈哈佛塑科技峰会上开发{{order.remarks}}</view>
+    </view>
+    <view class="pay-item flex">
       <view class="pay-name">订单编号</view>
       <view class="pay-content color">{{order.orderNo}}</view>
     </view>
