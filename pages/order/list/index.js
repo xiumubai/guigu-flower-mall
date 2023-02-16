@@ -27,12 +27,20 @@ Page({
    */
   onReachBottom() {
     // 还有数据，继续请求接口
-    console.log(1);
     if (this.data.loadStatus === 0) {
       this.getOrderList();
     }
   },
 
+  /**
+   * 跳转订单详情
+   */
+  gotoOrderDetail(event) {
+    const orderNo = event.currentTarget.dataset.orderno;
+    wx.navigateTo({
+      url: `/pages/order/detail/index?orderNo=${orderNo}`,
+    });
+  },
   /**
    * 获取订单列表
    */

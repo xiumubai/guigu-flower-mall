@@ -4,47 +4,75 @@
     <van-cell-group>
       <van-field
         label-class="filed-label"
-        model:value="{{ name }}"
+        value="{{ locationState.name }}"
         label="收货人"
+        bind:change="onInputValue"
+        data-type="name"
         placeholder="您的姓名"
       />
       <van-field
         label-class="filed-label"
-        model:value="{{ phone }}"
+        value="{{ locationState.phone }}"
         label="手机号"
         type="number"
         maxlength="11"
+        bind:change="onInputValue"
+        data-type="phone"
         placeholder="联系您的手机号"
       />
       
-      <picker mode="region" bindchange="onRegionChange" >
+      <picker 
+        mode="region"
+        value="{{region}}" 
+        bind:change="onInputValue" 
+        data-type="region">
         <van-field
           label-class="filed-label"
-          value="{{ region }}"
+          value="{{ regionName }}"
           label="地址"
+          readonly
           placeholder="省/市/区"
         />
       </picker>
       <van-field
         label-class="filed-label"
-        model:value="{{ address }}"
+        value="{{ locationState.address }}"
         label="详细地址"
+        type="textarea"
+        bind:change="onInputValue"
+        autosize
+        data-type="address"
         placeholder="门牌号等(例如:10栋1001号)"
       />
-      
       <van-cell title="标签" title-width="94px">
-        <van-radio-group model:value="{{ tagName }}" direction="horizontal">
+        <van-radio-group
+          bind:change="onInputValue"
+          data-type="tagName"
+          value="{{ locationState.tagName }}"
+          direction="horizontal"
+        >
           <van-radio name="家">家</van-radio>
           <van-radio name="公司">公司</van-radio>
         </van-radio-group>
       </van-cell>
+      <!-- 不需要校验 -->
       <van-cell title="是否设置为默认地址">
-        <switch checked="{{isDefault}}" bindchange="onChangeDefalut"/>
+        <switch
+          checked="{{locationState.isDefault}}" 
+          bind:change="onChangeDefalut"/>
       </van-cell>
 
     </van-cell-group>
   </form>
   <view class="footer-btn">
-    <van-button block type="primary" round bindtap="handleSubmit">保存</van-button>
+    <van-button
+      block type="primary"
+      custom-class="{{!submitActive ? 'btn-active' : '' }}"
+      round
+      bindtap="handleSubmit"
+    >
+      保存
+    </van-button>
   </view>
+  <van-toast id="van-toast" />
 </view>

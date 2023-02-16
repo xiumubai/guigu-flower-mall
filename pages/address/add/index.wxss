@@ -18,3 +18,7 @@
 .filed-label {
   color: #323233 !important;
 }
+
+.btn-active {
+  opacity: 0.5;
+}

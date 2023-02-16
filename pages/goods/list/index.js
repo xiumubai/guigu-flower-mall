@@ -28,7 +28,6 @@ Page({
    */
   onReachBottom() {
     // 还有数据，继续请求接口
-    console.log(123, this.data);
     if (this.data.loadStatus === 0) {
       this.loadGoodsList();
     }

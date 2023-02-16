@@ -34,7 +34,7 @@ App({
       statusBarHeight,
       safeArea: { bottom },
     } = res;
-    console.log('resHeight', res);
+    // console.log('resHeight', res);
 
     if (screenHeight && bottom) {
       // 安全区域高度

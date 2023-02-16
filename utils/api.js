@@ -148,7 +148,6 @@ export const queryPayStatus = (orderNo) => {
  * 订单列表
  */
 export const orderList = (params) => {
-  console.log(params);
   return request({
     url: `/mall-api/order/order/${params.page}/${params.limit}`,
     method: 'GET',
@@ -201,7 +200,6 @@ export const deleteCart = (goodsId) => {
  * 选中与取消选中购物车
  */
 export const checkCart = (params) => {
-  console.log(params);
   return request({
     url: `/mall-api/cart/checkCart/${params.goodsId}/${params.isChecked}`,
     method: 'GET',

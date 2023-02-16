@@ -1,7 +1,7 @@
 <!--pages/order/list/index.wxml-->
 <view class="container order-container" style="min-height: {{contentHeight}}px; padding-bottom: {{safeAreaHeight}}px">
   <block wx:if="{{list.length > 0}}">
-    <view class="order-card" wx:for="{{list}}" wx:key="index">
+    <view class="order-card" wx:for="{{list}}" wx:key="index" bindtap="gotoOrderDetail" data-orderno="{{item.orderNo}}">
       <view class="order-card-header flex">
         <view class="orderno">订单号<text class="no">{{item.orderNo}}</text></view>
         <view class="order-status">{{item.orderStatus ? '已支付' : '未支付'}}</view>

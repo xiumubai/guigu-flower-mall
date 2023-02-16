@@ -9,7 +9,6 @@ export const store = observable({
   /** 异步方法 */
   getCartListCount: async function () {
     const num = await getCartList();
-    console.log('count', num);
     runInAction(() => {
       this.count = num;
     });
