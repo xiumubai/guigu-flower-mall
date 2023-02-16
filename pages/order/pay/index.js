@@ -113,7 +113,6 @@ Page({
       buyName &&
       buyPhone &&
       deliveryDate &&
-      remarks &&
       userAddressId &&
       list.length > 0
     ) {
