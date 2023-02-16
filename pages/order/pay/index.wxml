@@ -17,16 +17,16 @@
       url="/pages/address/list/index?isBack=1"
       open-type="navigate">
       <view class="order-address flex">
-      <view class="address-content">
-        <view class="title">{{address.fullAddress}}</view>
-        <view class="detail">{{address.address}}</view>
-        <view class="info flex">
-          <text>{{address.name}}</text>
-          <text>{{address.phone}}</text>
+        <view class="address-content">
+          <view class="title">{{address.fullAddress}}</view>
+          <view class="detail">{{address.address}}</view>
+          <view class="info flex">
+            <text>{{address.name}}</text>
+            <text>{{address.phone}}</text>
+          </view>
         </view>
+        <van-icon color="#BBBBBB" name="arrow" size="22px"/>
       </view>
-      <van-icon color="#BBBBBB" name="arrow" size="22px"/>
-    </view>
     </navigator>
     <view class="top-line"></view>
   </view>
