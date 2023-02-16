@@ -12,7 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
     this.getOrderDetail(options.orderNo);
   },
 
@@ -21,7 +20,6 @@ Page({
    */
   async getOrderDetail(orderNo) {
     const res = await orderDetail(orderNo);
-    console.log(res);
     if (res.code === 200) {
       this.setData({ order: res.data });
     }

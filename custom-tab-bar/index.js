@@ -12,7 +12,6 @@ Component({
   },
   observers: {
     count: function (val) {
-      console.log('val', val);
       // 更新购物车的数量
       this.setData({ cartCount: val });
     },

@@ -73,7 +73,6 @@ Page({
    * 事件：修改时间
    */
   onChangeDateTime(event) {
-    console.log(event);
     this.setData({
       currentDate: event.detail,
     });
@@ -110,7 +109,6 @@ Page({
     };
 
     // 支付成功，跳转到支付成功页面
-    console.log(params);
     if (
       buyName &&
       buyPhone &&
@@ -121,7 +119,6 @@ Page({
     ) {
       const res = await submitOrder(params);
       if (res.code === 200) {
-        console.log(res);
         const orderNo = res.data;
         this.setData({ orderNo });
         this.createPay(orderNo);
@@ -139,7 +136,6 @@ Page({
   async createPay(orderNo) {
     const res = await createJsapi(orderNo);
     if (res.code === 200) {
-      console.log(res);
       this.createWxPay(res.data);
     }
   },
@@ -156,7 +152,6 @@ Page({
       signType: data.signType,
       paySign: data.paySign,
       success(data) {
-        console.log('pay-success', data);
         that.queryPayResult();
       },
       fail(e) {
@@ -194,7 +189,7 @@ Page({
     // 手动输入商品数量以后如何计算商品的总价，完善中，敬请期待。。。
     const newCount = event.detail;
     const goodsId = event.target.dataset.goodsid;
-    console.log(event);
+    // console.log(event);
   },
   /**
    * 事件：增加商品数量
