@@ -80,7 +80,7 @@ Page({
           'locationState.districtCode': code[2],
           'locationState.districtName': value[2],
           // picker回显，处理成['北京市', '北京市', '昌平区']的格式
-          region: value,
+          region: code,
           // 表单回显，处理成'北京市/北京市/昌平区'的各式
           regionName: value.join('/'),
         },
@@ -182,8 +182,15 @@ Page({
     if (res.code === 200) {
       const data = res.data;
       const regionName = data.fullAddress.split(data.address)[0];
+      const region = new Array(
+        data.provinceCode,
+        data.cityCode,
+        data.districtCode,
+      );
       this.setData({
+        // 直接把整个data赋值给了locationState，里面会有数据冗余，不推荐这么做
         locationState: data,
+        region,
         regionName,
         // name: data.name,
         // // 电话
