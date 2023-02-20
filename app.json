@@ -4,15 +4,32 @@
     "pages/category/category",
     "pages/cart/cart",
     "pages/info/info",
-    "pages/goods/list/index",
-    "pages/goods/detail/index",
-    "pages/address/add/index",
-    "pages/address/list/index",
-    "pages/login/index",
-    "pages/order/pay/index",
-    "pages/order/list/index",
-    "pages/order/result/index",
-    "pages/order/detail/index"
+    "pages/login/index"
+  ],
+  "subpackages": [
+    {
+      "root": "pages/goods",
+      "pages": [
+        "list/index",
+        "detail/index"
+      ]
+    },
+    {
+      "root": "pages/address",
+      "pages": [
+        "list/index",
+        "add/index"
+      ]
+    },
+    {
+      "root": "pages/order",
+      "pages": [
+        "pay/index",
+        "list/index",
+        "result/index",
+        "detail/index"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",
